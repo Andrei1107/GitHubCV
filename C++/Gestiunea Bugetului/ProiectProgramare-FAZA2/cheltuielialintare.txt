@@ -1,0 +1,80 @@
+Chelieli Alimentare
+Nume familie:
+Oprea
+
+
+Suma achitata:
+100
+
+Zi:
+10
+
+Luna:
+12
+
+An:
+2017
+Chelieli Alimentare
+Nume familie:
+Nita
+
+
+Suma achitata:
+250
+
+Zi:
+11
+
+Luna:
+5
+
+An:
+2017
+Chelieli Alimentare
+Nume familie:
+Cristescu
+
+
+Suma achitata:
+300
+
+Zi:
+15
+
+Luna:
+1
+
+An:
+2016
+Chelieli Alimentare
+Nume familie:
+Ionescu
+
+
+Suma achitata:
+400
+
+Zi:
+20
+
+Luna:
+9
+
+An:
+2017
+Chelieli Alimentare
+Nume familie:
+Lupuleasa
+
+
+Suma achitata:
+120
+
+Zi:
+26
+
+Luna:
+8
+
+An:
+2017

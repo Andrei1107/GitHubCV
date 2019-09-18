@@ -1,0 +1,10 @@
+
+Osquid:S1481",Remove this unused "another" local variable.(Ž Á£ûÿÿÿÿ8´¤õùÊ-
+Dsquid:S1481"&Remove this unused "y" local variable.(µÞ¢ö8Ü¦ŒúÊ-
+Dsquid:S1481"&Remove this unused "k" local variable.(‘Œ€ß8Ü¦ŒúÊ-
+Ssquid:S1854"5Remove this useless assignment to local variable "y".(µÞ¢ö8Ü¦ŒúÊ-
+^squid:S1854";Remove this useless assignment to local variable "another".(Ž Á£ûÿÿÿÿ8´¤õùÊ-
+Msquid:S1481"*Remove this unused "input" local variable.(¸ª³Îýÿÿÿÿ8‹Ë“úÊ-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÁÞ‹ûüÿÿÿÿ8Ü·ï÷Ê-
+\squid:S1854"9Remove this useless assignment to local variable "input".(¸ª³Îýÿÿÿÿ8‹Ë“úÊ-

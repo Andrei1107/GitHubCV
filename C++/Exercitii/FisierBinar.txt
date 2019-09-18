@@ -1,0 +1,145 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+class Bilet
+{
+private:
+	char loc[20];
+	float pret;
+
+public:
+	Bilet()
+	{
+		strcpy(this->loc, "None"); //nu mai alocam zona de memorie deoarece e alocat static
+		this->pret = 0;
+	}
+
+	Bilet(char* loc, float pret)
+	{
+		strcpy(this->loc, loc);
+		this->pret = pret;
+	}
+
+
+	void scrieInFB(ostream &f)
+	{
+		f.write(this->loc, sizeof(Bilet::loc));
+		f.write((char*)&this->pret, sizeof(Bilet::pret));
+	}
+
+	friend ostream& operator<<(ostream& out, const Bilet& b);
+};
+
+ostream& operator<<(ostream& out, const Bilet& b) {
+	out << "loc: " << b.loc << ", pret: " << b.pret;
+	return out;
+}
+
+class Spectacol {
+private:
+	char denSpectacol[50];
+	int nrBilete;
+	Bilet* listaBilete;
+
+public:
+	Spectacol()
+	{
+		strcpy(this->denSpectacol, "Anonim");
+		this->nrBilete = 0;
+		this->listaBilete = NULL;
+	}
+
+	Spectacol(char denS[50], Bilet* listaB, int n)
+	{
+		strcpy(this->denSpectacol, denS);
+		this->nrBilete = n;
+		this->listaBilete = new Bilet[this->nrBilete];
+		for (int i = 0; i < this->nrBilete; i++)
+			this->listaBilete[i] = listaB[i];
+	}
+
+	void generareRaport(char* numeFisier)
+	{
+		//declarare + deschidere fisier Binar
+
+		ofstream fisier;
+		fisier.open(numeFisier, ios::out|ios::binary);
+		if (fisier.is_open())
+		{
+			fisier.write(this->denSpectacol, sizeof(Spectacol::denSpectacol));
+			fisier.write((char*)&this->nrBilete, sizeof(int));
+			for (int i = 0; i < this->nrBilete; i++)
+				this->listaBilete[i].scrieInFB(fisier);
+		}
+		fisier.close();
+	}
+
+	~Spectacol()
+	{
+		if (this->listaBilete != NULL)
+			delete this->listaBilete;
+	}
+
+	friend ostream& operator<<(ostream& out, const Spectacol& s);
+};
+
+ostream& operator<<(ostream& out, const Spectacol& s)
+{
+	out << "Spectacolul:" << s.denSpectacol;
+	out << " are" << s.nrBilete << " bilete:\n";
+	for (int i = 0; i < s.nrBilete; i++)
+		out <<"\n"<<s.listaBilete[i];
+	return out;
+}
+
+//cer 3
+class gestiuneFisiere
+{
+private:
+	char numeF1[100];
+
+public:
+	//metoda ce genereaza un raport
+	void generareRaport(Spectacol s)
+	{
+		//parcurgere obiect s si scriere in fisier test
+		//fisier text=>atributul numeF1;
+	}
+};
+
+
+void main(int argc, char* argv[])
+{
+	//argc=nr de parametrii
+	//argv=vector/lista de siruri de caractere
+	char numeFisier[100];
+	if (argc == 3)
+	{
+		cout << "\n" << argv[0];
+		cout << "\n" << argv[1];
+		cout << "\n" << argv[2];
+
+		strcpy(numeFisier, argv[1]);
+	}
+
+	else {
+		strcpy(numeFisier, "Balarie.txt");
+	}
+
+	
+	Bilet listaB[3];
+	listaB[0] = Bilet("AB/02", 150);
+	listaB[1] = Bilet("AC/10", 100);
+	listaB[2] = Bilet("AA/25", 250);
+	
+	Spectacol s("Concert de craciun 2017", listaB, 3);
+
+	cout << s;
+
+	s.generareRaport(numeFisier);
+
+	//cer 3
+	gestiuneFisiere gF;
+	gF.generareRaport(s);
+}

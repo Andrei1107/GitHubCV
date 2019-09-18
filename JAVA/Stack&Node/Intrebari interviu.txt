@@ -1,0 +1,8 @@
+2 obiecte care sunt equals trb sa aiba aceelasi HashCode
+2 obiecte care au aceelasi Hash nu sunt neaparat egale
+
+
+HashCode=
+-o metoda care nu primeste nici un parametru si returneaza un intreg
+
+

@@ -1,0 +1,141 @@
+#include<iostream>
+using namespace std;
+
+class FisierAudio
+{
+private:
+	char* denumire;
+	int durata;
+
+public:
+	//const int id;
+	//static int nrFisiere;
+
+	FisierAudio()
+	{
+		this->denumire = new char[strlen("Necunoscut") + 1];
+		strcpy(this->denumire, "Necunoscut");
+		this->durata = 0;
+	}
+
+	FisierAudio(char* denumire, int durata)
+	{
+		if (denumire != NULL)
+		{
+			this->denumire = new char[strlen(denumire) + 1];
+			strcpy(this->denumire, denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->durata = durata;
+	}
+
+	FisierAudio& operator=(const FisierAudio& fa)
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (fa.denumire != NULL)
+		{
+			this->denumire = new char[strlen(fa.denumire) + 1];
+			strcpy(this->denumire, fa.denumire);
+		}
+		else this->denumire = NULL;
+		this->durata = fa.durata;
+		return *this;
+	}
+
+	FisierAudio(const FisierAudio& fa)
+	{
+		if (fa.denumire != NULL)
+		{
+			this->denumire = new char[strlen(fa.denumire) + 1];
+			strcpy(this->denumire, fa.denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->durata = fa.durata;
+	}
+
+	~FisierAudio()
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+	}
+
+	void afisare() {
+		if (this->denumire != NULL)
+			cout << "\nDenumire:" << this->denumire;
+		cout << "\nCu durata:" << this->durata << "secunde";
+	}
+	friend ostream& operator<<(ostream& out, FisierAudio fa); //afisam si l am trimis pe fa prin valoare
+	friend istream& operator>>(istream& in, FisierAudio& fa); //la istream punem referinta deoarece vrem sa il modificam pe fa
+};
+
+ostream& operator<<(ostream& out, FisierAudio fa) //aceasta metoda NU TINE DE CLASA DECI NU MAI AVEM THIS-UL, echivalentul metodei afisare;
+{
+	if (fa.denumire != NULL)
+		out << "\nDenumire:" << fa.denumire;
+	out << "\nCu durata:" << fa.durata << "secunde";
+	return out;
+
+	 }
+
+istream& operator >> (istream& in, FisierAudio& fa)
+{
+	if (fa.denumire != NULL)
+		delete[] fa.denumire;
+	char buffer[100]; //vector alocat static;
+	cout << "\nIntroduceti denumirea:";
+	in.get(buffer, 100); //atunci cand avem pointer tre sa alocam zona de memorie si sa il copiem
+	fa.denumire = new char[strlen("buffer") + 1];
+	strcpy(fa.denumire, buffer);
+	cout << "\nIntroduceti durata:";
+	in >> fa.durata;
+	return in;
+
+}
+
+
+
+class PlayList
+{
+private:
+	FisierAudio *playList;
+	int nrFisiere;
+
+public:
+	static int durataPlayList;
+
+};
+
+void main()
+{
+	//TO DO
+	/*Clasa FisierAudio
+	getter si setter pentru atribute private
+	gestionare atribute statice si constante
+	supraincarcare operatori << si >>
+	*/
+
+	/*Clasa PlayList
+	constructor cu parametrii
+	destructor
+	supraincarcare operatori << si >>
+	metoda pentru adaugare in PlayList si eliminare din PlayList de noi FisiereAudio
+	gestiune atribut static durataPlayList
+	*/
+
+	FisierAudio fa1;
+	FisierAudio fa2("The one", 140);
+	FisierAudio fa3 = fa2; //se apeleaza constructorul de copiere;
+	//fa1 = fa2 //se apeleaza op egal sau fa1.operator=(fa2);
+
+
+		//fa2.afisare();
+		//system("pause");
+		cout << fa2;
+
+		FisierAudio fa4;
+		cin >> fa4;
+
+}

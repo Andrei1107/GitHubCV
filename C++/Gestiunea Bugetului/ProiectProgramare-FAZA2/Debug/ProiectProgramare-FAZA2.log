@@ -1,0 +1,6 @@
+﻿  Source.cpp
+D:\Files\Facultate\An2\POO\POO\ProiectProgramare-FAZA2\ProiectProgramare-FAZA2\Source.cpp(1542,16): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\Facultate\An2\POO\POO\ProiectProgramare-FAZA2\ProiectProgramare-FAZA2\Source.cpp(1620,10): warning C4244:  'return': conversion from 'float' to 'int', possible loss of data
+D:\Files\Facultate\An2\POO\POO\ProiectProgramare-FAZA2\ProiectProgramare-FAZA2\Source.cpp(1731,24): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\Facultate\An2\POO\POO\ProiectProgramare-FAZA2\ProiectProgramare-FAZA2\Source.cpp(1751,6): warning C4101:  'alegere2': unreferenced local variable
+  ProiectProgramare-FAZA2.vcxproj -> D:\Files\Facultate\An2\POO\POO\ProiectProgramare-FAZA2\Debug\ProiectProgramare-FAZA2.exe

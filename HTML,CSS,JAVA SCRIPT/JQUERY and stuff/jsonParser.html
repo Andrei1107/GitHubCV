@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<p id="demo">
+
+</p>
+
+<script>
+	var text = '{"angajati":[' +
+						'{"nume":"Ion","prenume":"Popescu" },' +
+						'{"nume":"Vlad","prenume":"Vasile" },' +
+						'{"nume":"Luca","prenume":"Matei" }]}';
+
+	obj = JSON.parse(text);
+	
+	var body = document.getElementsByTagName('body')[0];
+	var tb1=document.createElement('table');
+	tb1.style.width='100%';
+	tb1.setAttribute('border', '1');
+	var tbdy=document.createElement('tbody');
+	
+
+	for( i=0; i<obj.angajati.length; i++){
+		var a=obj.angajati[i];
+		var tr=tb1.insertRow();
+		var td=tr.insertCell();
+		td.appendChild(document.createTextNode(a.nume));
+		td=tr.insertCell();
+		td.appendChild(document.createTextNode(a.prenume));
+		
+//		document.getElementById("demo").innerHTML =
+//		a.nume + " " + a.prenume;
+	}
+	
+	tb1.appendChild(tbdy);	
+	body.appendChild(tb1);
+
+</script>
+
+
+<!-- <script> -->
+<!-- $.getJSON('source', { get_param: 'value' }, function(data) { -->
+    <!-- $.each(data, function(index, element) { -->
+        <!-- $('body').append($('<div>', { -->
+            <!-- text: element.name -->
+        <!-- })); -->
+    <!-- }); -->
+<!-- }); -->
+<!-- </script> -->
+</body>
+</html>

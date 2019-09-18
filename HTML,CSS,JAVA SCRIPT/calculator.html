@@ -1,0 +1,128 @@
+<HTML>
+​
+	<HEAD>
+​
+	<meta charset="utf-8">
+	<script src="interschimbare.js"></script>
+	
+	</HEAD>
+	
+	<BODY>
+		<form>
+			
+			Operand 1: <input type="number" id="operand1">
+			<br>
+			Operand 2: <input type="number" id="operand2">
+			<br>
+			<input type="button" id="valid" value="Aduna" onclick="aduna();"	/>
+			<input type="button" id="scad" value="Scadere" onclick="scadere();" />
+		</form>
+		
+		<p id="rezultat"></p>
+		<p id="sc"></p>
+		
+		
+		
+		<div id="unDiv">
+		</div>
+		
+		
+		<input type="button" id="modifica" value="Modifica Div" onclick="modificaDiv();" />
+		
+		
+		<br>
+		
+		<form>
+		<label for="nume">Name:</label>
+		<input type="text" id="nume">
+		<br>
+		<input type="checkbox" id="check" onclick="if(this.checked){modificaStilul()}">
+		<input type="button" id="alerta" value="Alerta" onclick="alert('aceasta este o alerta');">
+		
+		
+		</form>
+		
+		
+		
+		<form>
+		<label for="nr1">Primul nr:</label>
+		<input type="text" id="nr1">
+		<br>
+		<label for="nr2">Primul nr:</label>
+		<input type="text" id="nr2">
+		
+		<input type="button" id="inter" value="Interschimba" onclick="interschimbare();" />
+		
+		<br>
+		<br>
+			<p id="Adupainterschimbare"></p>
+		<p id="Bdupainterschimbare"></p>
+		
+		</form>
+		
+		<form>
+		<label for="numarul">Introduceti numarul:</label>
+		<input type="number" id="numarul">
+		</br>
+		<input type="button" id="add" value="adauga" onclick="adaugare();" />
+		<input type="button" id="display" value="afiseaza" onclick="afiseaza();" />
+		<br>
+		<input type="button" id="sortThis" value="sorteaza" onclick="sortareBule();" />
+		
+	
+		<p id="vectorul"</p>
+		</br>
+			
+		
+		<br>
+		
+		
+		
+		</form>
+		
+		<script>
+		
+		function modificaStilul(){
+		
+		var element=document.getElementById("nume");
+		element.style.background="blue";
+		element.style.color="yellow";
+		
+		
+		element.value=element.value.toUpperCase();
+		
+		}
+		
+		
+		
+				
+		
+			
+			function aduna(){
+				var op1=parseFloat(document.getElementById("operand1").value);
+				var op2=parseFloat(document.getElementById("operand2").value);
+				var rez=op1+op2;
+				
+				document.getElementById("rezultat").innerHTML=rez.toString();
+				
+				
+			}
+			
+			function scadere(){
+				var op1=parseFloat(document.getElementById("operand1").value);
+				var op2=parseFloat(document.getElementById("operand2").value);
+				var rez=op1-op2;
+				document.getElementById("sc").innerHTML=rez.toString();
+			}
+			
+			function modificaDiv(){
+			var element=document.getElementById("unDiv");
+			element.innerHTML="<p>Am adaugat un paragraf in div</p>";
+			
+			}
+			
+		</script>
+	
+	</BODY>
+​
+</HTML>

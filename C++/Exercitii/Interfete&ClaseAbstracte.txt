@@ -1,0 +1,135 @@
+#include<iostream>
+using namespace std;
+
+//interfata are o metoda virtuala pura
+//clasa abstracta este o clasa care are minim o metoda virtuala pura ,dar poate avea si metode concrete
+class IComerciabil
+{
+	//metoda virtuala pura
+	virtual float getPret() = 0; //=0 ins ca e pura
+};
+
+class Parfum : public IComerciabil
+{
+private:
+	char* denumire;
+	float pret;
+	bool impachetat;
+	static float costImpachetare;
+
+public:
+	Parfum()
+	{
+		this->denumire = new char[strlen("None") + 1];
+		strcpy(this->denumire, "None");
+		this->pret = 0;
+		this->impachetat = false;
+	}
+
+	Parfum(char* denumire, float pret, bool impachetat)
+	{
+		if (denumire != NULL)
+		{
+			this->denumire = new char[strlen(denumire) + 1];
+			strcpy(this->denumire, denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->pret = pret;
+		this->impachetat = impachetat;
+	}
+
+	Parfum(const Parfum& p) :pret(p.pret), impachetat(p.impachetat) //lista de initializatori
+	{
+		if (p.denumire != NULL)
+		{
+			this->denumire = new char[strlen(p.denumire) + 1];
+			strcpy(this->denumire, p.denumire);
+		}
+		else
+			this->denumire = NULL;
+	}
+
+	Parfum& operator=(const Parfum& p)
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+
+		if (p.denumire != NULL)
+		{
+			this->denumire = new char[strlen(p.denumire) + 1];
+			strcpy(this->denumire, p.denumire);
+		}
+		else
+			this->denumire = NULL;
+
+		this->pret = p.pret;
+		this->impachetat = p.impachetat;
+
+		return *this;
+	}
+
+	float getPret()  //obligatoriu de implementat in clasa derivata!!
+	{
+		if (this->impachetat == true)
+			return this->pret + Parfum::costImpachetare;
+		else
+			return this->pret;
+	}
+
+	~Parfum()
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+	}
+
+	friend ostream& operator<<(ostream& out, const Parfum& p);
+};
+
+ostream& operator<<(ostream& out, const Parfum& p)
+{
+	out << "Parfumul " << p.denumire << " are pretul: " << p.pret;
+	out << " si se doreste impachetat: " << p.impachetat;
+	return out;
+}
+
+float Parfum::costImpachetare = 100;
+
+
+void main() {
+	//IComerciabil o;
+	Parfum p("Dior", 300, true);
+	cout << p.getPret();
+
+	//matrice de obiecte de tip parfum
+	Parfum** mp; //prima steluta se ref la linii, a doua la coloane
+	int nrLinii;
+	int nrColoane;
+	//alocare zona de memorie
+	mp = new Parfum*[nrLinii];
+	for (int i = 0; i < nrLinii; i++)
+		mp[i] = new Parfum[nrColoane];
+
+	//alta versiune
+	//vector alocat dinamic de obiecte de tip Parfum
+	Parfum* vp;
+	int nrParfumuri;
+	vp = new Parfum[nrParfumuri];
+	//accesare parfum: vp[i];
+	
+
+	//vector alocat dinamic de pointeri la parfumuri
+	Parfum** vdParfumuri;
+	int nrParfum;
+	vdParfumuri = new Parfum*[nrParfum];
+	//accesare: Parfum vdParfumuri[i]; (pointer la Parfum);
+	
+
+	//vector alocat static de pointeri la parfumuri
+	Parfum* vsp[20];
+	int nrParfumuri;
+	//vsp[i] este pointer la parfum
+
+}
+
+//metoda virtuala nu este egala cu zero! si metoda virtuala pura=0!

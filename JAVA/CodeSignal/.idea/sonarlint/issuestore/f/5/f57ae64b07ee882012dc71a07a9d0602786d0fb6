@@ -1,0 +1,6 @@
+
+Xsquid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜
+Tsquid:S1197"8Move the array designator from the variable to the type.(ö§Êšûÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(‘Ú×’
+7squid:S2639" Correct this regular expression.(Û¥¥«

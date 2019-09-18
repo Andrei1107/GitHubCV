@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1489922462 source:c:\users\madalin\desktop\temacapitol1\1.1.3\main.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<malloc.h>
+

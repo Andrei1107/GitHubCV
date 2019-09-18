@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</HEAD>
+	
+	<BODY>
+		<p></p>
+		<form>
+			<select id="single">
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+			</select>
+		</form>
+		
+		<script>
+			function displayVals(){
+				var value=$("#single").val();
+				$("p").html("<b>Value<b>"+value);
+			}
+			
+			$("select").change(displayVals);
+			
+		</script>
+		
+	</BODY>
+</HTML>

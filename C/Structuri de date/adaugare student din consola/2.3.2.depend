@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1492957252 source:c:\users\andre\desktop\c\2.3.2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1493144401 source:c:\users\andre\desktop\c\2.3.2-1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1493144401 source:c:\users\andre\desktop\c\adaugare student din consola\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

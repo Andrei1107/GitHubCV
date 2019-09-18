@@ -1,0 +1,168 @@
+#include<iostream>
+using namespace std;
+
+class Autoturism
+{
+private:
+	char* denumire;
+	int nrKm;
+	const int anFabricatie;
+	static int nrKmMaxim;
+
+public:
+	Autoturism(int anFabricatie) :anFabricatie(anFabricatie)
+	{
+		this->denumire = new char[strlen("Necunoscut") + 1];
+		strcpy(this->denumire, "Necunoscut");
+		this->nrKm = 0;
+	}
+
+	Autoturism(char* denumire, int nrKm, int anFabricatie) :anFabricatie(anFabricatie)
+	{
+		if (denumire != NULL)
+		{
+			this->denumire = new char[strlen(denumire) + 1];
+			strcpy(this->denumire, denumire);
+		}
+		else
+			this->denumire = NULL;
+
+		this->nrKm = nrKm;
+	}
+
+	Autoturism(const Autoturism& at):anFabricatie(at.anFabricatie)
+	{
+		if (at.denumire != NULL)
+		{
+			this->denumire = new char[strlen(at.denumire) + 1];
+			strcpy(this->denumire, at.denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->nrKm = at.nrKm;
+	}
+
+	Autoturism& operator=(const Autoturism& at)
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (at.denumire != NULL)
+		{
+			this->denumire = new char[strlen(at.denumire) + 1];
+			strcpy(this->denumire, at.denumire);
+		}
+		else this->denumire = NULL;
+		this->nrKm = at.nrKm;
+		return *this;
+	}
+
+	char* getDenumire()
+	{
+		if (this->denumire != NULL)
+			return this->denumire;
+	}
+
+	int getNrKm()
+	{
+		return this->nrKm;
+	}
+
+	bool getInUz()
+	{
+		if (this->nrKm <= nrKmMaxim)
+			return true;
+		else
+			return false;
+	}
+
+	void setDenumire(char* denumire)
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (denumire != NULL)
+		{
+			this->denumire = new char[strlen(denumire) + 1];
+			strcpy(this->denumire, denumire);
+		}
+		else
+			this->denumire = NULL;
+	}
+
+	Autoturism operator++()
+	{
+		this->nrKm++;
+		return *this;
+	}
+
+	operator int()
+	{
+		return this->nrKm;
+	}
+
+	bool operator<=(Autoturism at)
+	{
+		if (this->anFabricatie >= at.anFabricatie)
+			return true;
+		else
+			return false;
+	}
+
+	Autoturism operator+ (int kmSuplimentari)
+	{
+		Autoturism atRez = *this;
+		atRez.nrKm += kmSuplimentari;
+		return atRez;
+	}
+
+	~Autoturism()
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+	}
+
+	friend ostream& operator<<(ostream& out, Autoturism at);
+};
+
+ostream& operator<<(ostream& out, Autoturism at)
+{
+	out <<"\n"<< at.denumire << " fabricata in " << at.anFabricatie << " cu " << at.nrKm << " km";
+	return out;
+}
+
+int Autoturism::nrKmMaxim = 100000;
+
+void main()
+{
+	Autoturism at1(2005);
+	cout <<"\n"<< at1.getDenumire();
+
+	Autoturism at2("Dacia 1300", 100000, 1960);
+	cout << "\n" << at2.getInUz();
+
+	Autoturism at3 = at2;
+	cout << "\n" << at3.getDenumire();
+
+	at3.setDenumire("Dacia 1300 New");
+	cout << at3;
+
+	Autoturism at4(1940);
+	at4 = at3 = at2;
+	cout << at4 << at3 << at2;
+
+	Autoturism *pAt = new Autoturism("Dacia Sandero", 0, 2017);
+	Autoturism at5 = ++(*pAt);
+	cout << "\n" << (*pAt).getNrKm() << " " << at5.getNrKm();
+
+	delete pAt;
+	int nrKm = (int)at5;
+	cout << "\n" << nrKm;
+
+	if (at5 <= at4)
+		cout << "\nAutoturismul at5 este mai nou ca autoturismul at4";
+	else
+		cout << "\nAutoturismul at4 este mai nou ca autoturismul at5";
+
+	at5 = at4 + 100;
+	cout << at5;
+	cout << at4;
+}

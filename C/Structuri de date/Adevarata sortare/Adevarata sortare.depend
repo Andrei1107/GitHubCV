@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1492967358 source:c:\users\andre\desktop\c\adevarata sortare\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<title> Pagina cu animale de companie a grupei SDA9 </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<style>
+			.col-container {
+				display: table;
+				width: 100%;
+			}
+			.col {
+				display: table-cell;
+				padding: 16px;
+			}
+
+			.carousel-inner > .item > img,
+			.carousel-inner > .item > a > img {
+				width: 70%;
+				margin: auto;
+			}
+			.jumbotron {
+					background-image: url("img/cats.jpg");
+					background-size: cover;
+			}
+		</style>
+	</HEAD>
+	
+	<BODY>
+	
+	
+		<nav class="navbar navbar-default" style="background-color: #ff99ff; color: yellow">
+			<div class="container-fluid">
+				<div class="navbar-header" style="background-color: #ff99ff; color: yellow; font-weight: bold;">
+					<img class="nav-brand" src="img/brand.jpg">
+				</div>
+				<ul id="nav" class="nav navbar-nav" style="background-color: #ff99ff; color: yellow; font-weight: bold;">
+					<li><a href="pisici">Pisici</a></li>
+					<li><a href="catei">Catei</a></li>
+					<li><a href="papagali">Papagali</a></li>
+				</ul>
+			</div>
+		</nav>
+	
+		<div id="content">
+		<!--Aici se va incarca continutul folosind AJAX-->
+		
+		</div>
+		
+		<script>
+			$(document).ready(function(){
+				//initial
+				$("#content").load('http://127.0.0.1:8887/pisici.html');
+				
+				//handle menu clicks
+				$('ul#nav li a').click(function(){
+					var page=$(this).attr('href');
+					$('#content').load('http://127.0.0.1:8887/'+page+'.html');
+					return false;
+				});
+			});
+		</script>
+	
+	</BODY>
+</HTML>

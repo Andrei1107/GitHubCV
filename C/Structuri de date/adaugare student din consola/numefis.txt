@@ -1,0 +1,32 @@
+
+Nume si prenume: Nita Madalin
+Anul de studiu:3
+Grupa:1014
+Nr note:2
+Nota 0:10
+Nota 1:10
+Nume si prenume: Oprea AndreiAnul de studiu:3
+Grupa:1013
+Nr note:2
+Nota 0:10
+Nota 1:10
+Nume si prenume: Robert NeagoeAnul de studiu:2
+Grupa:1014
+Nr note:2
+Nota 0:10
+Nota 1:10
+Nume si prenume: Robert Neagoe
+Nume si prenume: Cristian Tudor Popescu
+Anul de studiu:3
+Grupa:12
+Nr note:3
+Nota 0:10
+Nota 1:5
+Nota 2:8
+Nume si prenume: 7Anul de studiu:3
+Grupa:12
+Nr note:3
+Nota 0:10
+Nota 1:5
+Nota 2:8
+Nume si prenume: 7

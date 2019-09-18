@@ -1,0 +1,8 @@
+
+asquid:UselessImportCheck"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Í‘Õ„
+T
+squid:S106 "9Replace this use of System.out or System.err by a logger.(´à¬ üÿÿÿÿ
+Esquid:S1481")Remove this unused "temp" local variable.(ÞÞ‡ˆùÿÿÿÿ
+2squid:S3626'"Remove this redundant jump.(ÉŠ©ƒ

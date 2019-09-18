@@ -1,0 +1,184 @@
+#include<iostream>
+using namespace std;
+
+class FisierAudio
+{
+private:
+	char* denumire;
+	int durata;
+
+public:
+	//const int id;
+	//static int nrFisiere;
+
+	FisierAudio()
+	{
+		this->denumire = new char[strlen("Necunoscut") + 1];
+		strcpy(this->denumire, "Necunoscut");
+		this->durata = 0;
+	}
+
+	FisierAudio(char* denumire, int durata)
+	{
+		if (denumire != NULL)
+		{
+			this->denumire = new char[strlen(denumire) + 1];
+			strcpy(this->denumire, denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->durata = durata;
+	}
+
+	FisierAudio(const FisierAudio& fa)
+	{
+		if (fa.denumire != NULL)
+		{
+			this->denumire = new char[strlen(fa.denumire) + 1];
+			strcpy(this->denumire, fa.denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->durata = fa.durata;
+	}
+
+	FisierAudio& operator=(const FisierAudio& fa)
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (fa.denumire != NULL)
+		{
+			this->denumire = new char[strlen(fa.denumire) + 1];
+			strcpy(this->denumire, fa.denumire);
+		}
+		else
+			this->denumire = NULL;
+		this->durata = fa.durata;
+		return *this;
+	}
+
+	char& operator [] (int i)
+	{   
+		if(i>=0&&i<strlen(this->denumire))
+		return this->denumire[i];
+	}
+
+	//PRE-INCREMENTARE ++
+	FisierAudio operator++()
+	{
+		this->durata++;
+		return *this;
+	}
+
+	//POST-INCREMENTARE ++
+	
+	FisierAudio operator++(int)
+	{
+		FisierAudio copie = *this;
+		//modifica conform cerintelor
+		this->durata++;
+		return copie;
+	}
+
+	//CAST
+	operator int() {
+
+		return this->durata;
+	}
+
+	operator char()
+	{
+		return this->denumire[0];
+	}
+
+	//OPERATORUL >=
+	bool operator>=(FisierAudio fa)
+	{
+		if (strlen(this->denumire) >= strlen(fa.denumire))
+			return true;
+		else return false;
+	}
+
+	~FisierAudio()
+	{
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+	}
+
+	friend ostream& operator<<(ostream& out, const FisierAudio& fa);
+	friend istream& operator >> (istream& in, FisierAudio& fa);
+	friend FisierAudio operator+(int durataSuplimentara, FisierAudio fa); // pt a face fa2=100+fa1 !!ordinea conteaza
+};
+
+      FisierAudio operator+(int durataSuplimentara, FisierAudio fa)
+{    
+		  fa.durata += 100;
+		  return fa;
+}
+
+ostream& operator<<(ostream& out, const FisierAudio& fa)
+{
+	if (fa.denumire != NULL)
+		out << "\nFisierAudio: " << fa.denumire;
+	out << " cu durata: " << fa.durata << " secunde";
+	return out;
+}
+
+istream& operator >> (istream& in, FisierAudio& fa)
+{
+	char buffer[100];
+	cout << "Introduceti denumire: ";
+	in >> buffer;
+	fa.denumire = new char[strlen(buffer) + 1];
+	strcpy(fa.denumire, buffer);
+	cout << "Introduceti durata: ";
+	in >> fa.durata;
+	return in;
+}
+
+void main()
+{
+	FisierAudio fa1("Melodie1", 101);
+	FisierAudio fa2("Melodie2", 102);
+
+	FisierAudio *fa3 = new FisierAudio("Melodie 3", 103);//->asta e un pointer!!!
+		delete fa3;// --dezalocarea, nu se mai pun paranteze deoarece avem un singur element.
+
+		char caracterDenumire = fa1[0];
+	cout << "\n" << caracterDenumire;
+
+	fa1[0] = 'x';
+	cout << fa1;
+
+	//FORMA PRE-INCREMENTARE
+	FisierAudio fa4; //se ap constructor fara parametrii
+	fa4 = ++fa1; 
+	cout << fa4;
+	cout << fa1;
+
+
+	//FORMA DE POST-INCREMENTARE
+	FisierAudio fa5;
+	fa5 = fa1++; //mai intai fa5 o sa fie egal cu fa1 urmand ca dupa sa fie modificat cu o unitate
+	cout << fa5;
+	cout << fa1;
+
+	FisierAudio fa6;
+	fa6 = 100 + fa5;
+	cout << fa6;
+	cout << fa5;
+
+	//cast la int (conversie la int)
+	int durata = (int)fa5;
+	cout << "/n" << durata;
+
+	char primCaracter = (char)fa5; //cast la char ce returneaza primul caracter din denumire fisier audio;
+	cout << "\n" << primCaracter;
+
+	FisierAudio fa7("Melodie7 Remix", 107);
+	FisierAudio fa8("Melodie8", 108);
+
+	if (fa7 >= fa8)
+	cout << "Melodia fa7 are denumirea mai lunga sau egala cu fa8";
+	else cout << "Melodia fa8 are o denumire mai lunga sau egala cu fa7";
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>	
+		<title>Validare formular</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="validareFormular.js"></script>
+	</HEAD>
+	
+	<BODY>
+	
+		<form>
+			Nume: <input type="text" id="nume" onkeyup="validare();"/> <label id="eroareNume"></label>
+			<br>
+			Email: <input type="email" id="email" onkeyup="validare();"/> <label id="eroareEmail"></label>
+			<br>
+			Parola: <input type="password" id="parola" onkeyup="validare();"/> <label id="eroareParola"></label>
+			<br>
+			Confirmare parola: <input type="password" id="confirmare" onkeyup="validare();"/> <label id="eroareConfirmare"></label>
+			<br><br>
+			<input type="button" id="valideaza" value="Valideaza formular!" onclick="validareFinala();"/>
+			<br>
+			<label id="validareFinala"></label>		
+		</form>
+			
+	</BODY>
+</HTML>

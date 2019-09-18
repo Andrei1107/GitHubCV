@@ -1,0 +1,20 @@
+Ionescu
+Mk
+2
+2 5 
+ 2
+Bradut
+CSIE
+2
+2 5 
+ 2
+Costachescu
+CSIE
+3
+10 3 4 
+ 3
+Mandarina
+Mk
+3
+10 3 4 
+ 3

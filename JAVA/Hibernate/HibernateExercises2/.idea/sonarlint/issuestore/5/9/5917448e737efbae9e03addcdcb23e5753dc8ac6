@@ -1,0 +1,11 @@
+
+csquid:S3252,"LUse static access with "org.hibernate.cfg.AvailableSettings" for "SHOW_SQL".(÷µ•–
+bsquid:S3252+"KUse static access with "org.hibernate.cfg.AvailableSettings" for "DIALECT".(ÝÝÌÒ
+Usquid:UselessImportCheck",Remove this unused import 'com.sda.UserDao'.(È¶¯Ðùÿÿÿÿ
+dsquid:S3252*"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(Ÿ§á¦ÿÿÿÿÿ
+Vsquid:S1118":Add a private constructor to hide the implicit public one.(‡Œïøþÿÿÿÿ
+xsquid:S3252-"aUse static access with "org.hibernate.cfg.AvailableSettings" for "CURRENT_SESSION_CONTEXT_CLASS".(ßÓÿ­
+^squid:S3252("GUse static access with "org.hibernate.cfg.AvailableSettings" for "URL".(à¿ÈÌ
+asquid:S3252'"JUse static access with "org.hibernate.cfg.AvailableSettings" for "DRIVER".(ùÎ¥ç
+_squid:S3252)"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(è©šŒ
+lsquid:S3252."PUse static access with "org.hibernate.cfg.AvailableSettings" for "HBM2DDL_AUTO".(ÍýÜüüÿÿÿÿ

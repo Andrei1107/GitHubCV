@@ -1,0 +1,61 @@
+
+#include<stdio.h>
+#include<conio.h>
+
+int schimba_coloane(float m[][20],int l, int c, int c1,int c2)
+{
+	int i,er;
+	float a;
+	if((c1<0)||(c1>=c)||(c2<0)||(c2>=c))
+		er=1;
+	else
+		for(i=0;i<l;i++)
+		{
+			a=m[i][c1];
+			m[i][c1]=m[i][c2];
+			m[i][c2]=a;
+			er=0;
+		}
+		return er;
+}
+
+void main()
+{
+	float m[20][20];
+	int i,j,l,c,col1,col2,er;
+	printf("\n  Numarul de linii = ");
+	scanf("%d",&l);
+	printf("\n  Numarul de coloane = ");
+	scanf("%d",&c);
+	printf("\n");
+	for(i=0;i<l;i++)
+		for(j=0;j<c;j++)
+		{
+			printf(" m[%d][%d]= ",i,j);
+			scanf("%f",&m[i][j]);
+		}
+    printf("\n\n Matricea pe care ati ales-o este urmatoarea: \n\n");
+    for(i=0;i<l;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            printf("m[%d][%d]=%.2f  ",i,j,m[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n  Se inlocuieste coloana(pozitia!!!) : ");
+	scanf("%d",&col1);
+	printf("\n\n  Cu coloana(pozitia!!!)( se schimba intre ele ): ");
+	scanf("%d",&col2);
+	er=schimba_coloane(m,l,c,col1,col2);
+	printf("\n\n Matricea rezultanta este urmatoarea: \n\n");
+	for(i=0;i<l;i++)
+		{
+		    for(j=0;j<c;j++)
+			{
+			    printf("m[%d][%d]=%.2f  ",i,j,m[i][j]);
+			}
+			printf("\n");
+		}
+	getch();
+}

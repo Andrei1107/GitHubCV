@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1492688024 source:c:\users\andre\desktop\c\exercitii\main.c
+	<conio.h>
+	<string.h>
+	<stdio.h>
+
+1492688586 source:c:\users\andre\desktop\c\secvential\preluare matrice din fisier txt\main.c
+	<conio.h>
+	<string.h>
+	<stdio.h>
+

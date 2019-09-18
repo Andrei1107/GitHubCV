@@ -1,0 +1,157 @@
+#include<iostream>
+using namespace std;
+
+class Catalog
+{
+private:
+	int** note;
+	int nrAni;
+	int nrMaterii;
+
+public:
+	Catalog(int** note=NULL, int nrAni=0, int nrMaterii=0)
+	{
+		cout << "\nApel constructor Catalog";
+	}
+
+	Catalog(const Catalog& c)
+	{
+		cout << "\nApel constructor copiere";
+	}
+
+	Catalog& operator=(const Catalog& c)
+	{
+		cout << "\nApel operator = Catalog";
+	}
+
+	~Catalog()
+	{
+		cout << "\nApel destructor Catalog";
+	}
+
+	friend istream& operator>>(istream & in, Catalog & c);
+	friend ostream& operator<<(ostream & out, Catalog c);
+};
+
+istream& operator>>(istream &in, Catalog & c)
+{
+	return in;
+}
+
+ostream& operator<<(ostream &out, Catalog c)
+{
+	return out;
+}
+
+class Student
+{
+private:
+	char* nume;
+	int varsta;
+	static int nrStud;
+	//const int marca;
+	//Catalog catalog;
+
+public:
+	Student(char* nume=NULL, int varsta=0):nume(nume), varsta(varsta),marca(++nrStud+100)
+	{
+		//nrStud++;
+		cout << "\nApel constructor Student";
+		if (nume != NULL)
+		{
+			this->nume = new char[strlen(nume) + 1];
+			strcpy(this->nume, nume);
+		}
+	}
+
+	Student(char*nume, int varsta, Catalog c)marca(++nrStud+100)
+	{
+		cout << "\nApel constructor Student";
+		if (nume != NULL)
+		{
+			this->nume = new char[strlen(nume) + 1];
+			strcpy(this->nume, nume);
+		}
+		else
+			this->nume = NULL;
+		this->varsta = varsta;
+	}
+
+	Student(const Student& s)marca(++nrStud+100)
+	{   nrStud++;
+		cout << "\nApel constructor copiere Student";
+		if (s.nume != NULL)
+		{
+			this->nume = new char[strlen(s.nume) + 1];
+			strcpy(this->nume, s.nume);
+		}
+		else
+			this->nume = NULL;
+		this->varsta = s.varsta;
+	}
+
+	Student& operator= (const Student& s)
+	{
+		cout << "\nApel operator = Student";
+		if (this->nume != NULL)
+			delete[] this->nume;
+		if (s.nume != NULL)
+		{
+			this->nume = new char[strlen(s.nume) + 1];
+			strcpy(this->nume, s.nume);
+		}
+		this->varsta = s.varsta;
+	}
+
+	~Student()
+	{
+		cout << "\nApel destructor Student";
+		if (this->nume != NULL)
+		{
+			delete[] this->nume;
+		}
+	}
+     
+	 static int getnrStud()
+	 {return nrStud;}
+	 
+	friend istream& operator>>(istream& in, Student& s);
+	friend ostream& operator<<(ostream& out, Student s);
+};
+
+istream& operator>>(istream& in, Student& s)
+{
+	if (s.nume != NULL)
+		delete[] s.nume;
+	char buffer[100];
+	cout << "\nNume: "; in.get(buffer,100);
+	cout << "Varsta: "; in >> s.varsta;
+	cout << endl;
+	s.nume = new char[strlen(buffer) + 1];
+	strcpy(s.nume, buffer);
+	return in;
+}
+
+ostream& operator<<(ostream& out, Student s)
+{
+	if (s.nume != NULL)
+		out << "\nNume: " << s.nume;
+	else
+		out << "\nNume: -";
+	out << "\nVarsta: " << s.varsta << "\n";
+	return out;
+}
+
+int Student::nrStud = 0;
+
+void main()
+{
+Student s1;
+Student s2("nume2",22);
+Student s3("nume3");
+
+cout<<Student::getnrStud();
+cout<<"\n"<<s1.getmarca;
+}
+
+

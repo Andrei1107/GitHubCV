@@ -1,0 +1,224 @@
+
+// liste dublu-inlantuite liniare
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+// prim - adresa primului nod
+// ultim - adresa ultimului nod
+
+struct Avion
+{
+	char* model;
+	int anFabricatie;
+};
+
+
+struct nodDublu
+{
+	nodDublu* next;
+	nodDublu* prev;
+	Avion info;
+};
+
+
+struct LDI // lista dublu inlantuita
+{
+	nodDublu* prim;
+	nodDublu* ultim;
+};
+
+Avion creareAvion(char* model, int anFabricatie)
+{
+	Avion avion;
+	avion.model = (char*)malloc(sizeof(char)*(strlen(model) + 1));
+	strcpy(avion.model, model);
+	avion.anFabricatie = anFabricatie;
+	return avion;
+}
+
+nodDublu* creareNodDublu(nodDublu* next, nodDublu* prev, Avion info)
+{
+	nodDublu* nodNou = (nodDublu*)malloc(sizeof(nodDublu));
+	nodNou->info = creareAvion(info.model, info.anFabricatie);
+	nodNou->next = next;
+	nodNou->prev = prev;
+	return nodNou;
+}
+
+// inserari
+
+// la inceput
+LDI inserareInceput(LDI lista, Avion info)
+{
+	nodDublu* nodNou = creareNodDublu(lista.prim, NULL, info);
+	if (lista.prim)
+	{
+		lista.prim->prev = nodNou;
+		lista.prim = nodNou;
+	}
+	else
+	{
+		lista.prim = nodNou;
+		lista.ultim = nodNou;
+	}
+	return lista;
+}
+
+// la sfarsit
+LDI inserareSfarsit(LDI lista, Avion info)
+{
+	nodDublu* nodNou = creareNodDublu(NULL, lista.ultim, info);
+	if (lista.ultim)
+	{
+		lista.ultim->next = nodNou;
+		lista.ultim = nodNou;
+	}
+	else
+	{
+		lista.prim = nodNou;
+		lista.ultim = nodNou;
+	}
+	return lista;
+}
+
+// inserare in interior pe o anumita pozitie 
+LDI inserarePePozitie(LDI lista, Avion info, int pozitie)
+{
+	if (lista.prim)
+	{
+		nodDublu* p = lista.prim;
+		int contor = 1;
+		while (p && contor<pozitie)
+		{
+			p = p->next;
+			contor++;
+	    }
+		if (p)
+		{
+			if (p->prev)
+			{
+				nodDublu* nodNou = creareNodDublu(p, p->prev, info);
+				p->prev->next = nodNou;
+				p->prev = nodNou;
+				return lista;
+			}
+			else
+			{
+				return inserareInceput(lista, info);
+			}
+		}
+		else
+		{
+			return inserareSfarsit(lista, info);
+		}
+	}
+	else
+	{
+		return inserareInceput(lista, info);
+	}
+}
+
+void afisareAvion(Avion a)
+{
+	printf(" Avionul %s a fost produs in anul %d.\n", a.model, a.anFabricatie);
+}
+
+
+// afisam - parcurgem lista -> metoda de la stanga la dreapta
+void afisareNormala(LDI lista)
+{
+	for (nodDublu* p = lista.prim; p != NULL; p = p->next)
+	{
+		afisareAvion(p->info);
+	}
+}
+// afisam - parcurgere lista de la dreapta la stanga
+void afisareInversa(LDI lista)
+{
+	for (nodDublu* p = lista.ultim; p != NULL; p = p->prev)
+	{
+		afisareAvion(p->info);
+	}
+}
+
+
+void stergereLista(LDI* lista)
+{
+	nodDublu* aux = lista->prim;
+	while (aux)
+	{
+		free(aux->info.model);
+		nodDublu* p = aux;
+		aux = aux->next;
+		free(p);
+	}
+	lista->prim = lista->ultim = NULL;
+}
+
+
+// vrem sa crream o lista simplu inlantuita cu avioanele produse dupa un anumit an
+// din lista dublu inlantuita
+
+struct nodSimplu
+{
+	Avion info;
+	nodSimplu* next;
+};
+
+nodSimplu* creareNodSimplu(nodSimplu* next, Avion info)
+{
+	nodSimplu* nou = (nodSimplu*)malloc(sizeof(nodSimplu));
+	nou->info = creareAvion(info.model, info.anFabricatie);
+	nou->next = next;
+	return nou;
+}
+
+nodSimplu* filtrareAvioane(LDI lista, int anLimita)
+{
+	nodSimplu* cap = NULL;
+	while (lista.prim)
+	{
+		if (lista.prim->info.anFabricatie >= anLimita)
+		{
+			cap = creareNodSimplu(cap, lista.prim->info);
+		}
+		lista.prim = lista.prim->next;
+	}
+	return cap;
+}
+
+
+
+void main()
+{
+	LDI lista;
+	lista.prim = NULL;
+	lista.ultim = NULL;
+	lista = inserareInceput(lista, creareAvion("B454", 2009));
+	lista = inserareInceput(lista, creareAvion("B747", 1980));
+	lista = inserarePePozitie(lista, creareAvion("B707", 2015),2);
+
+	afisareNormala(lista);
+	printf("\n");
+	afisareInversa(lista);
+	printf("\n");
+
+	nodSimplu* cap = filtrareAvioane(lista, 2010);
+	while (cap)
+	{
+		afisareAvion(cap->info);
+		nodSimplu* p = cap;
+		cap = cap->next;
+		free(p->info.model);
+		free(p);
+	}
+
+	stergereLista(&lista);
+
+	getchar();
+}
+
+
+

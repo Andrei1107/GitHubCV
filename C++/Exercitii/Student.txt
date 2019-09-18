@@ -1,0 +1,115 @@
+#include<iostream>
+using namespace std;
+
+class Student
+{
+private:
+	char* nume;
+	int varsta;
+
+public:
+	Student(char* nume = NULL, int varsta = 19) : nume(nume), varsta(varsta) //varsta(varsta)=this->varsta=varsta;
+	{
+		cout << "\nApel constructor";
+		if (nume != NULL)
+		{
+			this->nume = new char[strlen(nume) + 1];
+			strcpy(this->nume, nume);
+		}
+	}
+
+	Student(const Student&  s) //constr nu permite modificarea; &referinta(nu am copie, operez in zona de memorie unde se afla variabila) //metoda explicita
+	{
+		cout << "\nApel constructor de copiere";
+		if (s.nume != NULL)
+		{
+			this->nume = new char[strlen(s.nume) + 1];
+			strcpy(this->nume, s.nume);
+		}
+		else
+			this->nume = NULL;
+		this->varsta = s.varsta;
+	}
+	
+	Student& operator=(const Student& s)
+	{
+		cout << "\nApel operator =";
+		if (this->nume != NULL)
+			delete[] this->nume;
+
+		if (this->nume != NULL)
+		{
+			this->nume = new char [strlen(s.nume) + 1];
+			strcpy(this->nume, s.nume);
+		}
+		else this->nume = NULL;
+		this->varsta = s.varsta;
+		return *this;
+    }
+		
+	
+	 void afisare()
+	{
+		cout << "\nDate student: ";
+		if (this->nume != NULL)
+			cout << "\nNume: " << this->nume;
+		cout << "\nVarsta: " << this->varsta;
+	}
+	
+	~Student()
+	{
+		cout << "\nApel destructor";
+		if (this->nume != NULL)
+			delete[] this->nume;
+	}
+
+	int comparare1(Student s)//compar varsta this ului cu varsta lui s;
+	{
+		cout << "\nApel comparere1";
+		if (this->varsta > s.varsta)
+			return 1;
+		else if (this->varsta == s.varsta)
+			return 0;
+		return -1;
+	}
+
+	int comparare2(const Student& s)//compar varsta this ului cu varsta lui s;
+	{
+		cout << "\nApel comparere2";
+		if (this->varsta > s.varsta)
+			return 1;
+		else if (this->varsta == s.varsta)
+			return 0;
+		return -1;
+	}
+};
+
+
+void main()
+{
+	Student s1; //a folosit param NULL si 19
+	Student s2("Stud2"); // i-am trimis doar numele, varsta o ia 19
+	Student s3("Stud3", 23); // i-am trimis si numele si varsta;
+	s1.afisare();
+	s2.afisare();
+	s3.afisare();
+
+	Student s4 = s3; //=students4(s3) construieste studentul s4 pe baza parametrului student s3;
+	//s4.afisare();
+	cout << "\n####Comparare1####";
+	cout << "\n" << s4.comparare1(s3);
+	cout << "\n####Comparere2####";
+	cout << "\n" << s4.comparare2(s3);
+
+	s4 = s2; //!!!!!un obiect se va contrui o sg data prin constructor; de ex aici, s4 a fost declarat mai sus Student s4;
+
+
+
+}
+
+	Student dani;
+	Student adelina;
+	adelina = dani; // AICI SE APELEAZA OPERATORUL =
+
+	Student dani;
+	Student adelina = dani; // AICI SE APELEAZA COPY CONSTRUCTORUL

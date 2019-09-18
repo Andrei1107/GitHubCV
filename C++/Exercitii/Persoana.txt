@@ -1,0 +1,171 @@
+#include<iostream>
+using namespace std;
+class Persoana
+{
+private:
+	char* nume;
+	int varsta;
+public:
+	Persoana()
+	{
+		cout << "\nApel constructor Persoana";
+		this->nume = new char[strlen("Anonim") + 1];
+		this->varsta = 0;
+	}
+	Persoana(char* nume, int varsta)
+	{
+		cout << "\nApel constructor param persoana";
+		if (nume != NULL)
+		{
+			this->nume = new char[strlen(nume) + 1];
+			strcpy(this->nume, nume);
+		}
+		else this->nume = NULL;
+		this->varsta = varsta;	
+	}
+	Persoana(const Persoana& p)
+	{
+		cout << "\n Apel constructor copy Persoana";
+		if (p.nume != NULL)
+		{
+			this->nume = new char[strlen(p.nume) + 1];
+			strcpy(this->nume, p.nume);
+		}
+		else this->nume = NULL;
+		this->varsta = p.varsta;
+	}
+	int getVarsta()
+	{
+		return this->varsta;
+	}
+	char* getNume()
+	{
+		return this->nume;
+	}
+	Persoana& operator=(const Persoana& p)//il forteaza sa mearga in cascada
+	{
+		cout << "\n Apel operator= Persoana";
+		if (this->nume != NULL)
+			delete[] this->nume;
+		if (p.nume != NULL)
+		{
+			this->nume = new char[strlen(p.nume) + 1];
+			strcpy(this->nume, p.nume);
+		}
+		else this->nume = NULL;
+		this->varsta = p.varsta;
+	}
+
+	~Persoana()
+	{
+		cout << "\n Apel destructor";
+		if (this->nume != NULL)
+			delete[] this->nume;
+	}
+
+	friend ostream& operator<<(ostream& out, Persoana p);
+};
+ostream & operator<<(ostream & out, Persoana p)
+{
+	out << "\nPersoana " << p.nume << " are " << p.varsta << " ani ";
+	return out;
+}
+class Student :public Persoana
+{
+private:
+	char* facultate;
+	int nrNote;
+	int* note;
+public:
+	Student():Persoana()
+	{
+		cout << "\nApel constructor Student";
+		this->facultate = new char[strlen("None") + 1];
+		strcpy(this->facultate, "None");
+		this->nrNote = 0;
+		this->note = NULL;
+	}
+	Student(char* nume, int varsta, char* facultate, int nrNote, int* note):Persoana(nume,varsta)
+	{
+		if (facultate != NULL)
+		{
+			this->facultate = new char[strlen(facultate) + 1];
+			strcpy(this->facultate, facultate);
+		}
+		else this->facultate = NULL;
+		this->nrNote = nrNote;
+		if (note != NULL)
+		{
+			this->note = new int[this->nrNote];
+			for (int i = 0; i < this->nrNote; i++)
+				this->note[i] = note[i];
+		}
+		else
+			this->note = NULL;
+	}
+	
+	Student(Persoana p, char* facultate, int nrNote, int* note) :Persoana(p)
+	{
+		//cu apel de constructor de copiere
+		if (facultate != NULL)
+		{
+			this->facultate = new char[strlen(facultate) + 1];
+			strcpy(this->facultate, facultate);
+		}
+		else this->facultate = NULL;
+		this->nrNote = nrNote;
+		if (note != NULL)
+		{
+			this->note = new int[this->nrNote];
+			for (int i = 0; i < this->nrNote; i++)
+				this->note[i] = note[i];
+		}
+		else
+			this->note = NULL;
+	}
+	Student(const Student& s):Persoana(s)
+	{
+		cout << "\nApel constructor de copiere pentru student";
+		if(s.facultate!=NULL)
+		{ 
+			this->facultate = new char[strlen(s.facultate) + 1];
+			strcpy(this->facultate, s.facultate);
+		}
+		else this->facultate = NULL;
+		this->nrNote = s.nrNote;
+		if(s.note!=NULL)
+		{
+			this->note = new int[this->nrNote];
+			for (int i = 0; i < this->nrNote; i++)
+				this->note[i] = s.note[i];
+		}
+	}
+	~Student()
+	{
+		cout << "\n Apel destructor Student";
+		if (this->facultate != NULL)
+			delete[] this->facultate;
+		if (this->note != NULL)
+			delete[] this->note;
+	}
+	friend ostream& operator<<(ostream& out, Student s);
+};
+
+ostream & operator<<(ostream&out, Student s)
+{
+	out << "\nStudentul " << s.getNume() << " are varsta " << s.getVarsta();
+	out << " ani si este la facultatea " << s.facultate;
+	return out;
+}
+
+void main()
+{
+	Persoana p1("Ionescu", 12);
+	Persoana p2("Popescu2", 44);
+	cout << p1 << p2;
+	int note[]{ 1,2,3,4,5 };
+	Student s1("Costachescu", 20, "ASE", 4, note);
+	cout << "\n###############"; 
+	cout << s1;
+	cout << "\n###############";
+}

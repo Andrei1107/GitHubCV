@@ -1,0 +1,232 @@
+#include<iostream>
+using namespace std;
+#include<fstream>
+
+class Profesor
+{
+private:
+	char* nume;
+	int* nrActivitati;
+	int vechime;
+	char facultate[10];
+
+public:
+	Profesor()
+	{
+		this->nume = NULL;
+		this->vechime = 0;
+		this->nrActivitati = NULL;
+		strcpy(this->facultate, "None");
+	}
+
+	Profesor(char* nume, int* nrActivitati, int vechime, char facultate[])
+	{
+		if (nume != NULL)
+		{
+			this->nume = new char[strlen(nume) + 1];
+			strcpy(this->nume, nume);
+		}
+		else
+			this->nume = NULL;
+		this->vechime = vechime;
+		if (nrActivitati != NULL)
+		{
+			this->nrActivitati = new int[vechime];
+			for (int i = 0; i < vechime; i++)
+				this->nrActivitati[i] = nrActivitati[i];
+		}
+		else
+			this->nrActivitati = NULL;
+		strcpy(this->facultate, facultate);
+	}
+
+	Profesor(const Profesor& prof)
+	{
+		if (prof.nume != NULL)
+		{
+			this->nume = new char[strlen(prof.nume) + 1];
+			strcpy(this->nume, prof.nume);
+		}
+		else
+			this->nume = NULL;
+		this->vechime = prof.vechime;
+		if (prof.nrActivitati != NULL)
+		{
+			this->nrActivitati = new int[vechime];
+			for (int i = 0; i < vechime; i++)
+				this->nrActivitati[i] = prof.nrActivitati[i];
+		}
+		else
+			this->nrActivitati = NULL;
+		strcpy(this->facultate, prof.facultate);
+	}
+
+	Profesor& operator=(const Profesor& prof)
+	{
+		if (this->nume != NULL)
+			delete[] this->nume;
+		if (this->nrActivitati != NULL)
+			delete[] this->nrActivitati;
+
+		if (prof.nume != NULL)
+		{
+			this->nume = new char[strlen(prof.nume) + 1];
+			strcpy(this->nume, prof.nume);
+		}
+		else
+			this->nume = NULL;
+		this->vechime = prof.vechime;
+		if (prof.nrActivitati != NULL)
+		{
+			this->nrActivitati = new int[vechime];
+			for (int i = 0; i < vechime; i++)
+				this->nrActivitati[i] = prof.nrActivitati[i];
+		}
+		else
+			this->nrActivitati = NULL;
+		strcpy(this->facultate, prof.facultate);
+
+		return *this;
+	}
+
+	~Profesor()
+	{
+		if (this->nume != NULL)
+			delete[] this->nume;
+		if (this->nrActivitati != NULL)
+			delete[] this->nrActivitati;
+	}
+
+	friend ostream& operator<<(ostream& out, const Profesor& prof);
+	friend ofstream& operator<<(ofstream& out, const Profesor& prof); //scriere
+	friend ifstream& operator >> (ifstream& in, Profesor& prof); //citire
+	friend void generareRaport1(Profesor* listaP, int nrProf);
+};
+
+ostream& operator<<(ostream& out, const Profesor& prof)
+{
+	if (prof.nume != NULL)
+		out << "\n" << prof.nume << " are ";
+	out << prof.vechime << " ani vechime la facultatea: " << prof.facultate;
+	out << " Nr activitati : ";
+	for (int i = 0; i < prof.vechime; i++)
+		out << prof.nrActivitati[i] << " ";
+	return out;
+}
+
+//implementam partea de scriere in fisier
+ofstream& operator<<(ofstream& out, const Profesor& prof) {
+	out << prof.nume << endl;
+	out << prof.facultate << endl;
+	out << prof.vechime << endl;
+	if(prof.vechime>0)
+		out << prof.nrActivitati[0];
+	for (int i = 0;i < prof.vechime;i++)
+		out <<" "<< prof.nrActivitati[i];
+	out << endl;
+	return  out;
+}
+
+ifstream& operator >> (ifstream& in, Profesor& prof) {
+	char buffer[100];
+	in.get(buffer, 100);
+	in.ignore(256, '\n');
+	prof.nume = new char[strlen(buffer) + 1];
+	strcpy(prof.nume, buffer);
+	in.get(buffer, 100);
+	in.ignore(256, '\n');
+	strcpy(prof.facultate, buffer);
+	in >> prof.vechime;
+	prof.nrActivitati = new int[prof.vechime];
+	for (int i = 0;i < prof.vechime;i++)
+	{
+		in >> prof.nrActivitati[i];
+	}
+	in.ignore(256, '\n');
+	return in;
+}
+
+void generareRaport1(Profesor* listaP, int nrProf) {
+	
+	Profesor p;
+	int nr = 0;
+	ofstream fisier;
+	fisier.open("profiSortati.txt", ios::out);
+	for (int i = 0; i < nrProf; i++)
+	{
+		if (listaP[i].vechime >= 3)
+			nr++;
+		for(int j=i+1;j<nrProf;j++)
+			if (listaP[i].vechime > listaP[j].vechime)
+			{
+				p = listaP[i];
+				listaP[i] = listaP[j];
+				listaP[j] = p;
+			}
+	}
+
+	fisier << nr << endl;
+	for (int i = 0;i < nrProf;i++)
+		if (listaP[i].vechime >= 3)
+			fisier << listaP[i].nume << endl;
+	fisier.close();
+
+}
+
+void main(int argc, char* argv[]) //cerinta 1 proiect
+{
+	char fisier1[100];
+	char fisier2[100];
+	if (argc == 3)
+	{
+		cout << argv[0];
+		strcpy(fisier1, argv[1]);
+		strcpy(fisier2, argv[2]);
+		cout << fisier1 << endl << fisier2;
+	}
+	int activitati1[] = { 10,3,4 };
+	int activitati2[] = { 2,5 };
+	int activitati3[] = { 4,7,3,5 };
+	Profesor p1("Costachescu", activitati1, 3, "CSIE");
+	Profesor p2("Ionescu", activitati2, 2, "Mk");
+	Profesor p3("Bradut", activitati3, 4, "CSIE");
+	Profesor p4("Mandarina", activitati1, 3, "Mk");
+
+	Profesor listaProfesori[] = { p1,p2,p3,p4 };
+
+	//ofstream fOut;
+	//fOut.open("profesori.txt", ios::out);
+	//// ios::out=optiunea de a scrie in fisier
+	//fOut << 4 << endl;
+	//for (int i = 0;i <= 4;i++)
+	//{
+	//	fOut << listaProfesori[i];
+	//}
+
+	//cerinta 4 proiect
+	//raport: sa se creeze fisierul profiSortati.txt care sa contina nr de profesori pe prima linie
+	//si dupa sa apara profesorii sortati crescator in functie de vechime, restrictie: sa apara profesorii care au vechime>=3.
+
+
+
+	generareRaport1(listaProfesori, 4);
+
+	//citire din fisier
+	ifstream fIn;
+	fIn.open("profesori.txt", ios::in);
+	int nrProf;
+	Profesor* listaP;
+	fIn >> nrProf;
+	fIn.ignore(256, '\n');
+	listaP = new Profesor[nrProf];
+	for (int i = 0;i < nrProf;i++)
+	{
+		fIn >> listaP[i];
+	}
+
+	for (int i = 0;i < nrProf;i++)
+		cout << listaP[i] <<  endl;
+
+	
+
+}

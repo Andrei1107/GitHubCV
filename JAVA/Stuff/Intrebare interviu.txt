@@ -1,0 +1,48 @@
+diferenta dintre && si &
+&& evalueaza ambele expresii ,iar & doar prima expresie
+&& operator de scurtcircuitare
+
+DE CITIT:
+HEAD FIRST JAVA
+
+
+
+Out of topic
+
+GIT
+
+Versiune :
+1.2.17
+1 se numeste major,versiunea mare  a proiectului cu schibari majore
+2 se numeste minor,functionalitati noi(butoane noi,release(daca nu merge releas ul,se creeaza un patch)
+17 se numeste patch(cand creste patch ul,inseamna ca s au fixat bug uri)
+
+snapshot-versiune instabila,inca in lucru
+beta este o versiune in care snapshot ul functioneaza,
+
+
+GitHub ul este un repository remote(spatiu undeva pe server,in care poti pune cod)
+Cand clonez:se ia repository ul de pe server si se creeaza un repository local
+Dupa clonare ,dupa repository ul local se creeaza Staging Area
+Staging Area are Working Directory
+Working Directory este folderul cu proiectul clonat
+Totul se stocheaza  in Working Directory(apare rosu)
+Cand fac operatii(Add) se muta din Working directory in Staging Area(cu verde)
+In Stanging Area se face commit ul [git commit -m "istoric commit" (-m este un mesaj)]
+Acum avem un commit salvat local
+Mai departe ,vreau sa l pun pe Remote Repository cu git push
+Nu pot sa fac asta,daca nu fac git pull,ca sa am modificarle la zi,cand dau pull iti face merge,adica ce e pe server+ ce am scris eu in plus
+Dupa ce am modificarile la zi,pot sa fac push
+
+
+Origin Master(origin=name of repository,master-name of Brench)
+
+
+
+//POOOOOOOOO
+
+Protected vs Package Private
+
+In protected pot sa accesez si copii clasei parinte daca sunt in alte pachete(package-private+copii)
+Package-private poate accesa metode doar din pachetul curent si nu are acces la clasele copii din alte pachete
+

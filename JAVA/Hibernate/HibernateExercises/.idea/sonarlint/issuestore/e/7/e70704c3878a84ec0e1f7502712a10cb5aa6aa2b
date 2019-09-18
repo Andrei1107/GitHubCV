@@ -1,0 +1,117 @@
+
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÚÕ¶‰úÿÿÿÿ
+U
+squid:S106Ë"9Replace this use of System.out or System.err by a logger.(œ¾í’ûÿÿÿÿ
+P
+squid:S106¯"9Replace this use of System.out or System.err by a logger.(³ Å
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(ì÷¹Ä
+U
+squid:S106€"9Replace this use of System.out or System.err by a logger.(¿•ç˜ıÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(’Àå
+T
+squid:S106y"9Replace this use of System.out or System.err by a logger.(¢ïÈ‘ùÿÿÿÿ
+U
+squid:S106Š"9Replace this use of System.out or System.err by a logger.(ö›åŠûÿÿÿÿ
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(ı¯µüøÿÿÿÿ
+P
+squid:S106ã"9Replace this use of System.out or System.err by a logger.(÷ÏÓ‹
+P
+squid:S106ç"9Replace this use of System.out or System.err by a logger.(á¨ÄÔ
+O
+squid:S106n"9Replace this use of System.out or System.err by a logger.(³ Å
+U
+squid:S106°"9Replace this use of System.out or System.err by a logger.(ÎŠşÿÿÿÿ
+U
+squid:S106µ"9Replace this use of System.out or System.err by a logger.(¿•ç˜ıÿÿÿÿ
+nsquid:S1192À"QDefine a constant instead of duplicating this literal "                " 5 times.(á©²‚úÿÿÿÿ
+U"squid:SwitchLastCaseIsDefaultCheckL""Add a default case to this switch.(ü‰¸ıÿÿÿÿ
+T
+squid:S106e"9Replace this use of System.out or System.err by a logger.(‹â´úÿÿÿÿ
+P
+squid:S106×"9Replace this use of System.out or System.err by a logger.(öˆ«Ñ
+ksquid:S1192À"NDefine a constant instead of duplicating this literal "             " 5 times.(á©²‚úÿÿÿÿ
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÌÙù³
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(¿ƒš‹
+U
+squid:S106ï"9Replace this use of System.out or System.err by a logger.(Ãæ×®úÿÿÿÿ
+lsquid:S1192n"UDefine a constant instead of duplicating this literal "Introduceti editura:" 3 times.(³ Å
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(®¬”úÿÿÿÿ
+dsquid:S1192¿"GDefine a constant instead of duplicating this literal "     " 15 times.(¸ÍÉùÿÿÿÿ
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(¢ŸÀ×
+U
+squid:S106à"9Replace this use of System.out or System.err by a logger.(œ¾í’ûÿÿÿÿ
+P
+squid:S106û"9Replace this use of System.out or System.err by a logger.(šÇáÍ
+P
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(³ Å
+O
+squid:S106v"9Replace this use of System.out or System.err by a logger.(µšäœ
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(Âşú’ùÿÿÿÿ
+P
+squid:S106Â"9Replace this use of System.out or System.err by a logger.(ÿÙã
+U
+squid:S106È"9Replace this use of System.out or System.err by a logger.(–Ô·áùÿÿÿÿ
+Hsquid:S1481",Remove this unused "idCarte" local variable.(×ŸŞáùÿÿÿÿ
+fsquid:S00100
+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷äöœ
+O
+squid:S106‡"9Replace this use of System.out or System.err by a logger.(‰Ø¿ 
+P"squid:SwitchLastCaseIsDefaultCheck*""Add a default case to this switch.(áÛãÏ
+U
+squid:S106Û"9Replace this use of System.out or System.err by a logger.(µ²àÓşÿÿÿÿ
+O
+squid:S106z"9Replace this use of System.out or System.err by a logger.(«‰Åö
+U
+squid:S106“"9Replace this use of System.out or System.err by a logger.(¿•ç˜ıÿÿÿÿ
+T
+squid:S106{"9Replace this use of System.out or System.err by a logger.(½æÌšûÿÿÿÿ
+hsquid:CommentedOutCodeLineÈ"<This block of commented-out lines of code should be removed.(ô¸¦Ñúÿÿÿÿ
+O
+squid:S106x"9Replace this use of System.out or System.err by a logger.(—ÈÁ™
+U
+squid:S106î"9Replace this use of System.out or System.err by a logger.(¥Şà¬ıÿÿÿÿ
+Wsquid:S1854";Remove this useless assignment to local variable "choise2".(ÛåèŸşÿÿÿÿ
+U
+squid:S106º"9Replace this use of System.out or System.err by a logger.(ÁÌÛèıÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Âî¥’ûÿÿÿÿ
+Rsquid:S1854";Remove this useless assignment to local variable "choise3".(æö’÷
+Qsquid:S4973Ó"9Use the "equals" method if value comparison was intended.(Áÿ…õ
+U
+squid:S106¥"9Replace this use of System.out or System.err by a logger.(¿•ç˜ıÿÿÿÿ
+O
+squid:S106ñ"9Replace this use of System.out or System.err by a logger.(¦¨îj
+Fsquid:S1481Ì".Remove this unused "nrEditura" local variable.(şØï±
+O
+squid:S106w"9Replace this use of System.out or System.err by a logger.(Â¢Ù
+P
+squid:S106ò"9Replace this use of System.out or System.err by a logger.(¾¸ìÀ
+U
+squid:S106ê"9Replace this use of System.out or System.err by a logger.(‰Ş¼»şÿÿÿÿ
+U
+squid:S106§"9Replace this use of System.out or System.err by a logger.(şã–Ñúÿÿÿÿ
+U
+squid:S106“"9Replace this use of System.out or System.err by a logger.(çİÆ›ûÿÿÿÿ
+N
+squid:S106"9Replace this use of System.out or System.err by a logger.(“æó|
+O
+squid:S106#"9Replace this use of System.out or System.err by a logger.(¸éÃ
+U
+squid:S106¹"9Replace this use of System.out or System.err by a logger.(‚Û¯şÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(£ÕŒëşÿÿÿÿ
+U
+squid:S106¿"9Replace this use of System.out or System.err by a logger.(¸ÍÉùÿÿÿÿ
+U
+squid:S106Ù"9Replace this use of System.out or System.err by a logger.(«íÙúùÿÿÿÿ
+P
+squid:S106ğ"9Replace this use of System.out or System.err by a logger.(èÅ”´

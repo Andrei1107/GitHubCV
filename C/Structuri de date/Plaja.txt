@@ -1,0 +1,209 @@
+
+
+   /*
+	
+	liste - zone de memorie continue.
+
+	Moduri de inserare:
+	1.la inceput.
+	2.la sfarsit.
+	3.in interior.
+
+*/
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<malloc.h>
+
+struct Plaja
+{
+	char* locatie;
+	float suprafata;
+};
+
+struct Nod
+{
+	Plaja info;
+	Nod* next; //adresa urmatorului nod
+
+};
+
+// inserare la inceput
+
+Nod* inserareInceput(Nod* cap, Plaja plaja)
+{
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info.locatie = (char*)malloc(sizeof(char)*(strlen(plaja.locatie) + 1));
+	strcpy(nou->info.locatie, plaja.locatie);
+	nou->info.suprafata = plaja.suprafata;
+	nou->next = cap;
+	return nou;
+}
+
+Plaja crearePlaja(char* locatie, float suprafata)
+{
+	Plaja plaja;
+	plaja.locatie = (char*)malloc(sizeof(char)*(strlen(locatie) + 1));
+	strcpy(plaja.locatie, locatie);
+	plaja.suprafata = suprafata;
+	return plaja;
+}
+
+
+void afisareLista(Nod* cap)
+{
+	Nod* p = cap;
+	while (p)
+	{
+		printf(" Plaja din %s are %5.2f metrii patrati. \n",p->info.locatie,p->info.suprafata);
+		p = p->next;
+	}
+
+}
+
+void stergereLista(Nod** cap)
+{
+	while (*cap)
+	{
+		free((*cap)->info.locatie);
+		Nod* temp = *cap;
+		*cap = (*cap)->next;
+		free (temp); 
+	}
+}
+
+//inserare la sfarsit
+
+Nod* inserareSfarsit(Nod* cap, Plaja plaja)
+{
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = crearePlaja(plaja.locatie, plaja.suprafata);
+	nou->next = NULL;
+	if (cap)
+	{
+		Nod* p = cap;
+		while (p->next)
+		{
+			p = p->next;
+		}
+		p->next = nou;
+	}
+	else
+	{
+		cap = nou;
+	}
+	return cap;
+}
+
+// inserare sortata 
+
+Nod* inserareSortata(Nod* cap, Plaja plaja)
+{
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = crearePlaja(plaja.locatie, plaja.suprafata);
+	
+	if (cap)
+	{
+		if (stricmp(cap->info.locatie, plaja.locatie)>0)
+		{
+			nou->next = cap;
+			cap = nou;
+		}
+		else if(stricmp(cap->info.locatie, plaja.locatie)==0)
+		{  // trebuie pus while ( sau locatia diferita )
+			if (cap->info.suprafata >= plaja.suprafata) 
+			{
+				nou->next = cap;
+				cap = nou;
+			}
+			else
+			{
+				nou->next = cap->next;
+				cap->next = nou;
+			}
+		}
+		else
+		{
+			Nod* p = cap;
+			while (p->next && stricmp(p->next->info.locatie, plaja.locatie) < 0 && p->next->info.suprafata < plaja.suprafata)
+			{
+				p = p->next;
+			}
+			if (p->next)
+			{
+				nou->next = p->next;
+				p->next = nou;
+			}
+			else
+			{
+				p->next = nou;
+				nou->next = NULL;
+			}
+		}
+	}
+	else
+	{
+		cap = nou;
+		nou->next = NULL;
+	}
+	return cap;
+}
+
+
+
+
+void main(void main(void main(void main(void main()))))
+{
+	Nod* lista = NULL;
+
+	
+	Plaja plaja = crearePlaja("Mamaia", 300);
+
+	//inserare la inceput
+
+	lista = inserareInceput(lista, plaja);
+	plaja.suprafata = 400;
+	lista = inserareInceput(lista, plaja);
+	plaja.suprafata = 500;
+	lista = inserareInceput(lista, plaja);
+	// afisam lista
+	afisareLista(lista);
+	//stergere lista
+	stergereLista(&lista);
+	
+
+	// inserare la sfarsit
+
+	lista = inserareSfarsit(lista, plaja);
+	plaja.suprafata = 600;
+	lista = inserareSfarsit(lista, plaja);
+	plaja.suprafata = 700;
+	lista = inserareSfarsit(lista, plaja);
+
+	printf("\n");
+
+	afisareLista(lista);
+	stergereLista(&lista);
+	
+
+	//
+
+	lista = inserareSortata(lista, plaja);
+	plaja.suprafata = 600;
+	lista = inserareSortata(lista, plaja);
+	plaja.suprafata = 800;
+	lista = inserareSortata(lista, plaja);
+
+	printf("\n");
+
+	afisareLista(lista);
+	stergereLista(&lista);
+	free(plaja.locatie);
+
+
+	
+
+	
+}

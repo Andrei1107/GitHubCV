@@ -1,0 +1,10 @@
+Nume familie:			Suma achitata:			Zi:			Luna:			An:
+Oprea						100					10			12				2017						
+Nume familie:			Suma achitata:			Zi:			Luna:			An:
+Nita						250					11			5				2017						
+Nume familie:			Suma achitata:			Zi:			Luna:			An:
+Cristescu						300					15			1				2016						
+Nume familie:			Suma achitata:			Zi:			Luna:			An:
+Ionescu						400					20			9				2017						
+Nume familie:			Suma achitata:			Zi:			Luna:			An:
+Lupuleasa						120					26			8				2017						

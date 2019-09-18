@@ -1,0 +1,14 @@
+
+Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(ÆÂ´øÿÿÿÿ
+Ssquid:UselessImportCheck
+"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ
+lsquid:UselessImportCheck"CRemove this unused import 'jdk.nashorn.internal.parser.JSONParser'.(©ß÷‰ıÿÿÿÿ
+Wsquid:UselessImportCheck	".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+ssquid:UselessImportCheck"JRemove this unused import 'org.codehaus.jackson.map.JsonMappingException'.(Ì‹çÚıÿÿÿÿ
+?squid:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Vsquid:S1118":Add a private constructor to hide the implicit public one.(ôÖ®¬ùÿÿÿÿ
+Tsquid:S18549"8Remove this useless assignment to local variable "path".(ÔÅŞñùÿÿÿÿ
+Vsquid:S1854="?Remove this useless assignment to local variable "angajatiMap".(ß×ë
+]squid:S10757"ARefactor your code to get this URI from a customizable parameter.(€ø­Şıÿÿÿÿ
+Gsquid:S1481="0Remove this unused "angajatiMap" local variable.(ß×ë
+Esquid:S14819")Remove this unused "path" local variable.(ÔÅŞñùÿÿÿÿ

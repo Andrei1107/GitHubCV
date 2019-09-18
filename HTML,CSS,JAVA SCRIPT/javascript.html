@@ -1,0 +1,106 @@
+<HTML>
+
+
+
+<HEAD>
+
+<title>Example javascript</title>
+<meta charset="utf-8">
+
+<script>
+
+var text1="abc";
+var text2='abc';
+
+var number1=123;
+var number2=5.0123;
+var boolean1=true;
+var boolean2=false;
+
+console.log(text1);
+console.log(text2);
+
+console.log(number1);
+console.log(boolean1);
+console.log(boolean2);
+console.log("Salut");
+
+console.log(1+1);
+console.log(text1+text2);
+//comentariu
+console.log(number1+number2);
+console.log(boolean1 || boolean2);
+
+// == compara valorile
+ // === compara valorile si tipurile de date
+
+
+console.log("1" == 1);
+console.log("1" === 1);
+
+
+var array=[1,2,3,4];
+
+console.log(array);
+console.log(array[3]);
+
+console.log("Lungimea sirului este "+array.length);
+
+array.push(9);
+array.push(15);
+
+console.log("Dupa push");
+console.log(array);
+
+//Obiectele sunt create folosind JSON
+//aici nu mai putem "" si la chei,el le pune automat cand parsam obiectul in format JSON + ca
+//daca am pune "" la chei nu mai putem sa facem this.ceva
+
+var object={
+nume:"Andrei",
+varsta:23,
+prezent:true,
+
+ schimbaNume:function(noulNume){
+this.nume=noulNume;
+
+//in interiorul obiectului functia se declara cu :
+//in afara obiectului sunt exemple mai jos
+}
+
+}
+
+console.log(object.nume);
+object.schimbaNume("Mihai");
+console.log("Noul nume :" + object.nume);
+
+//primul mod de declarare
+function adunare(a,b){
+return a+b;
+}
+
+//sau
+//al 2-lea mod de a declara o functie
+scadere=function(a,b){
+return a-b;
+}
+
+
+
+console.log(adunare(1,100));
+console.log(scadere(1,100));
+
+//recomandat ca scripturile JS sa fie in body la final
+
+
+</script>
+
+</HEAD>
+
+
+</BODY>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,11 @@
+
+Fsquid:S1481"/Remove this unused "controller" local variable.(¯òõŠ
+^squid:UselessImportCheck".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8¿á…›Î-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(µ¶Ìÿÿÿÿÿ8¿á…›Î-
+T
+squid:S106,"9Replace this use of System.out or System.err by a logger.(¥²îŠûÿÿÿÿ
+Usquid:S1854">Remove this useless assignment to local variable "controller".(¯òõŠ
+Psquid:S1481"2Remove this unused "borrowedBooks" local variable.(„ºá¾8¿á…›Î-
+msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎöñË8¿á…›Î-
+_squid:S1854"ARemove this useless assignment to local variable "borrowedBooks".(„ºá¾8¿á…›Î-
+Rsquid:S1854)"<Remove this useless assignment to local variable "allBooks".(¾¿Ý	

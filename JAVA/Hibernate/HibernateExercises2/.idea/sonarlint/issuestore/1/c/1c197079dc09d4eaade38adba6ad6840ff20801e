@@ -1,0 +1,10 @@
+
+Ssquid:UselessImportCheck"/Remove this unused import 'java.util.Calendar'.(ÿÛö´
+[squid:UselessImportCheck"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ
+Tsquid:S1854"8Remove this useless assignment to local variable "date".(”Ç©šùÿÿÿÿ
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÿ²ƒ
+dsquid:S1192#"HDefine a constant instead of duplicating this literal "Polirom" 3 times.(Ø”®ÿÿÿÿÿ
+csquid:S1192""LDefine a constant instead of duplicating this literal "Dostoievsky" 3 times.(ôêÎ˜
+Esquid:S1481")Remove this unused "date" local variable.(”Ç©šùÿÿÿÿ
+usquid:S22932"YReplace the type specification in this constructor call with the diamond operator ("<>").(½ÈÌÅûÿÿÿÿ
+asquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò½•

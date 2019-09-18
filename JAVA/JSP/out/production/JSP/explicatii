@@ -1,0 +1,15 @@
+
+
+JSP este si el un Servlet in sine
+
+<%= este un fel de pointer
+
+<jsp:useBean id="helloBean"    //id ul este o referinta catre clasa
+             class="beans.HelloBean"></jsp:useBean>
+
+
+HTTP-marilena
+
+in http exista notiunea de Sesiune(cand incepi sa  faci request-uri se creeaza o sesiune)
+cu aceasta poti sa vezi de pe ce fel de browser s-a facut request ul si nu numai
+

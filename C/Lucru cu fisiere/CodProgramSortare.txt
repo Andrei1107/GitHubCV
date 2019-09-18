@@ -1,0 +1,125 @@
+// creati o structura de date STUDENT care sa contina  numar matricol,nume,an,grupa.
+//Introduceti intr un fisier binar cativa studenti si sortatii in functie de an si grupa
+//convertiti fisierul binar in fisier text
+ 
+
+  #include<stdio.h>
+  #include<conio.h>
+
+typedef struct
+{
+    int nrmat;
+    char nume[30];
+    int an;
+    int grupa;
+} STUDENT;
+
+void creare(char* NumeFisier)
+{
+    FILE*f;
+    STUDENT x;
+    f=fopen(NumeFisier,"wb+");
+    if(!f)
+    {
+        printf("\n Fisierul nu se poate deschide");
+    }
+    else
+    {
+      printf("\n Introduceti numarul matricol:");
+      scanf("%d",&x.nrmat);
+      while(!feof(stdin))
+      {
+          printf(" Numele studentului:");
+          fflush(stdin);
+          gets(x.nume);
+          printf(" Introduceti anul: ");
+          scanf("%d",&x.an);
+          printf(" Introduceti grupa: ");
+          scanf("%d",&x.grupa);
+          fwrite(&x,sizeof(STUDENT),1,f);
+          printf(" Introduceti numarul matricol:");
+          scanf("%d",&x.nrmat);
+      }
+      fclose(f);
+    }
+}
+
+void Sortare(char* NumeFisier)
+{
+   FILE *f;
+   STUDENT x;
+   STUDENT y;
+   int n,i,gata;
+   f=fopen(NumeFisier,"rb+");
+   if(!f)
+   {
+       printf("\n Fisierul binar nu se poate deschide");
+   }
+   else
+   {
+     fseek(f,0,2);
+     n=ftell(f)/sizeof(STUDENT);
+     gata=0;
+     while(!gata)
+     {
+         gata=1;
+         for(i=0;i<=n-2;i++)
+         {
+             fseek(f,i*sizeof(STUDENT),0);
+             fread(&x,sizeof(STUDENT),1,f);
+             fread(&y,sizeof(STUDENT),1,f);
+             if((x.an>y.an)||(x.an==y.an)&&(x.grupa>y.grupa))
+             {
+                 gata=0;
+                 fseek(f,i*sizeof(STUDENT),0);
+                 fwrite(&y,sizeof(STUDENT),1,f);
+                 fwrite(&x,sizeof(STUDENT),1,f);
+             }
+         }
+     }
+     fclose(f);
+   }
+}
+
+void ConversieInText(char* NumeFisier)
+{
+  FILE *f,*g;
+  STUDENT x;
+  f=fopen(NumeFisier,"r");
+  if(!f)
+  {
+      printf("\n Fisierul binar nu se poate deschide");
+  }
+  else
+  {
+    g=fopen("FisierText.txt","w+");
+    if(!g)
+    {
+        printf("\n Fisierul text nu se poate deschide");
+    }
+    else
+    {
+      fseek(f,0,0);
+      fread(&x,sizeof(STUDENT),1,f);
+      while(!feof(f))
+      {
+          fprintf(g,"Numar matricol: %d\n",x.nrmat);
+          fprintf(g,"Numele Studentului: %s\n",x.nume);
+          fprintf(g,"Anul studentului: %d\n",x.an);
+          fprintf(g,"Grupa studentului: %d\n",x.grupa);
+          fprintf(g,"\n\n");
+          fread(&x,sizeof(STUDENT),1,f);
+      }
+      fclose(g);
+    }
+    fclose(f);
+  }
+}
+
+void main()
+{
+    creare("FisierBinar.dat");
+    Sortare("FisierBinar.dat");
+    ConversieInText("FisierBinar.dat");
+    getch();
+}

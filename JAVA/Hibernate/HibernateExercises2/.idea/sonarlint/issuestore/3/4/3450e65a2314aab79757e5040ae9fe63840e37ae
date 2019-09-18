@@ -1,0 +1,77 @@
+
+csquid:CommentedOutCodeLineÁ"<This block of commented-out lines of code should be removed.(©ª»î
+hsquid:CommentedOutCodeLine¼"<This block of commented-out lines of code should be removed.(ˆµ»ìúÿÿÿÿ
+W
+squid:S106 "9Replace this use of System.out or System.err by a logger.(ÊÔÙ—8Áá…›Î-
+Gsquid:S1481"+Remove this unused "status" local variable.(«¬æ¥ýÿÿÿÿ
+csquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(ì¼Ä™
+asquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(¼Üà4
+T
+squid:S106h"9Replace this use of System.out or System.err by a logger.(Úš’–ùÿÿÿÿ
+Rsquid:S1854p";Remove this useless assignment to local variable "choise3".(æö’÷
+osquid:CommentedOutCodeLine¦"<This block of commented-out lines of code should be removed.(¼á©úøÿÿÿÿ8Áá…›Î-
+[squid:S1854¢"<Remove this useless assignment to local variable "borrowed".(­ø³”8Áá…›Î-
+N
+squid:S106+"9Replace this use of System.out or System.err by a logger.(È^
+hsquid:CommentedOutCodeLineŠ"<This block of commented-out lines of code should be removed.(ç‰Š‡øÿÿÿÿ
+V
+squid:S106e"9Replace this use of System.out or System.err by a logger.(ÉœÆ«8Áá…›Î-
+O
+squid:S106g"9Replace this use of System.out or System.err by a logger.(ù¹¼þ
+O
+squid:S106D"9Replace this use of System.out or System.err by a logger.(˜ã–É
+T
+squid:S106!"9Replace this use of System.out or System.err by a logger.(œïœÃúÿÿÿÿ
+hsquid:CommentedOutCodeLineÄ"<This block of commented-out lines of code should be removed.(ôæÁßüÿÿÿÿ
+\
+squid:S106®"9Replace this use of System.out or System.err by a logger.(š—°øÿÿÿÿ8Áá…›Î-
+Qsquid:S1854-":Remove this useless assignment to local variable "status".(ûÊ…”
+csquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(îâÄ›
+bsquid:CommentedOutCodeLine†"<This block of commented-out lines of code should be removed.(¹ò˜t
+hsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´×ž„øÿÿÿÿ
+\squid:S1854"@Remove this useless assignment to local variable "userNameList".(¤‡¶õÿÿÿÿÿ
+U
+squid:S106B"9Replace this use of System.out or System.err by a logger.(òòÌ8Áá…›Î-
+Hsquid:S1481n",Remove this unused "idCarte" local variable.(×ŸÞáùÿÿÿÿ
+asquid:S1871"IThis case's code block is the same as the block for the case on line 129.(£Ì×¬
+T
+squid:S106V"9Replace this use of System.out or System.err by a logger.(µá—çøÿÿÿÿ
+Wsquid:S1854o";Remove this useless assignment to local variable "choise2".(ÛåèŸþÿÿÿÿ
+T
+squid:S106x"9Replace this use of System.out or System.err by a logger.(®Ü«Ãþÿÿÿÿ
+[
+squid:S106f"9Replace this use of System.out or System.err by a logger.(ºæÜöþÿÿÿÿ8Áá…›Î-
+O
+squid:S106k"9Replace this use of System.out or System.err by a logger.(ôêÅ†
+V"squid:SwitchLastCaseIsDefaultCheck¾""Add a default case to this switch.(ü‰¸žýÿÿÿÿ
+P"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(áÛãÏ
+N
+squid:S106l"9Replace this use of System.out or System.err by a logger.(²À„t
+gsquid:CommentedOutCodeLine|"<This block of commented-out lines of code should be removed.(ùÀÇ¡úÿÿÿÿ
+psquid:S3776^"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¹§û8Áá…›Î-
+csquid:CommentedOutCodeLineÒ"<This block of commented-out lines of code should be removed.(öýÆ­
+T
+squid:S106 "9Replace this use of System.out or System.err by a logger.(Òåžøÿÿÿÿ
+T
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(£ð¹çøÿÿÿÿ
+W
+squid:S106©"9Replace this use of System.out or System.err by a logger.(ÊÔÙ—8Áá…›Î-
+T
+squid:S106j"9Replace this use of System.out or System.err by a logger.(¨·âØþÿÿÿÿ
+T
+squid:S106i"9Replace this use of System.out or System.err by a logger.(¸±äþÿÿÿÿ
+hsquid:CommentedOutCodeLineÈ"<This block of commented-out lines of code should be removed.(íª¬¥úÿÿÿÿ
+osquid:CommentedOutCodeLine´"<This block of commented-out lines of code should be removed.(…úúæûÿÿÿÿ8Áá…›Î-
+O
+squid:S106("9Replace this use of System.out or System.err by a logger.(˜ã–É
+P
+squid:S106×"9Replace this use of System.out or System.err by a logger.(ã¨Åæ
+N
+squid:S1061"9Replace this use of System.out or System.err by a logger.(‡¸“w
+N
+squid:S1065"9Replace this use of System.out or System.err by a logger.(È^
+O
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ý–ÌÜ
+^squid:S1854±"?Remove this useless assignment to local variable "uniqueBooks".(¬à‘°8Áá…›Î-
+fsquid:S1871…"IThis case's code block is the same as the block for the case on line 129.(¯“×ðÿÿÿÿÿ
+`squid:S1871‰"IThis case's code block is the same as the block for the case on line 129.(ðÿ«C

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<HTML>
+
+<HEAD>
+<title>Validare formular</title>
+
+<meta charset="utf-8">
+<script type="text/javascript" src="validareFormular.js"></script>
+
+</HEAD>
+
+
+
+<BODY>
+
+<form>
+
+Nume: <input type="text" id="nume"/> <label id="eroareNume"</label>
+<br>
+Email: <input type="email" id="email"/> <label id="eroareEmail"</label>
+<br>
+Parola: <input type="password" id="parola" /> <label id="eroareParola"</label>
+<br>
+Confirmare parola: <input type="password" id="confirmare" /> <label id="eroareConfirmare"</label>
+
+</form>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,65 @@
+
+Tranzactie=mai multe operatii
+
+
+Hybernate
+ -object relational mapper
+(mapeaza obiectele cu tabele)
+
+ -poate sa genereze dintr-o clasa o tabela
+ -el se afla intre aplicatia java si baza de date ,face leg.intre ele
+
+un POJO  -plain Old Java Object este un obiect care stocheaza datele,nu prelucreaza nimic,
+
+SessionFactory =creeaza conexiunea
+
+Hibernate foloseste constructorul gol ca sa construiasca obiecte,iar daca am un constructor cu un
+parametru de exemplu,o sa dea eroare pt ca nu a putut sa mi construiasca constructorul
+
+
+@Entity=recunoaste o entitate(din persistence)
+
+@Table=mapeaza la un tabel de sql(din persistence)
+
+@Id ,@Column
+
+@Transient=se pune pe un filed pe care nu vreau sa il salvez in db
+
+Cum face Maven sa descarce toate chestiile introduse in pom:
+tot ce pun in pom ca dependinte vin din Maven Repository (remote) si se descarca intr un folder m2 ,care se afla in Users/oprea /m2
+
+
+Conceptul de Cache-ing :zona de memorie:
+ex:utilizatori ce folosesc o aplicatie
+ca sa nu se blocheze aplicatia ,se salveaza intr  o zona de memorie rezultatele
+prima oara se retine in catch rezultatul ,iar dupa accesezi cath ul,nu serverul(asta pt o perioada)
+dupa se duce iar la server si se actualizeaza catchul
+
+
+Relatii intre obiecte
+
+relatiile pot fi unidirectionale si bidirectionale
+unidirectionale-dintr un tabel in altul si bi si invers
+
+One-To-One
+Many-To-Many
+One-To-Many
+
+@OneToOne(de cine e mapat tabelul employee)
+
+
+CascadeType.All=sterge din toate tabelele cu care este asociat campul
+
+
+in HQL beneficiez de catch ing
+
+HQL lucreaza cu clasele(entitati)
+
+
+
+@NamedNativeQuery adica sintaxa nativa MySQL
+@NamedQuery adica sintaxa HQL
+
+JavaPersistence-query.list()
+Hibernate-query.getResultList()
+

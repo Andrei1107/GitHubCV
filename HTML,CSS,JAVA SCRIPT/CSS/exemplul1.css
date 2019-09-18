@@ -1,0 +1,140 @@
+#primulDiv{
+	font-size:30px;
+	color: white;
+	
+}
+
+.formatareDiv{
+	font-size: 30px;
+	background-color: green;
+	color: white;
+}
+
+label{
+	font-size:24px;
+	color:red;
+	
+}
+
+div{
+	border:#990099 5px solid;
+}
+
+
+p{
+	color:BLACK;
+	
+}
+
+.firsttable{
+	
+	background-color:yellow;
+	
+}
+
+#secondtable{
+	
+	background-color:red;
+}
+
+
+
+
+INPUT[TYPE="BUTTON"]{
+	
+	BACKGROUND-COLOR:GREEN;
+	COLOR:YELLOW;
+	width:145px;
+	height:20px;
+	border-radius:10px;
+	font-weight:bold;
+	font-style:italic;
+	text-decoration:underline;
+	padding:0px;
+	margin:20px;
+}
+
+INPUT[TYPE="SUBMIT"]{
+	
+	BACKGROUND-COLOR:RED;
+	COLOR:YELLOW;
+	border-radius:5px;
+}
+
+INPUT[TYPE="RESET"]{
+	
+	BACKGROUND-COLOR:PURPLE;
+	COLOR:YELLOW;
+	border-radius:5px;
+	
+}
+INPUT[TYPE="text"],input[type="number"],input[type="email"],input[type="password"],input[type="date"],input[type="checkbox"]
+{
+	
+	BACKGROUND-COLOR:PURPLE;
+	COLOR:YELLOW;
+	border-radius:5px;
+	
+}
+
+
+
+
+
+
+
+TEXTAREA{
+	BACKGROUND-IMAGE:URL("../KOXOBiN.gif");
+	COLOR:BLACK;
+	
+}
+
+
+H1,H2{
+COLOR:GREEN;
+	
+}
+
+
+DIV P{
+	COLOR:WHITE;
+	
+}
+
+SPAN>P{
+
+BACKGROUND-COLOR:YELLOW;
+}	
+
+DIV+P{
+	COLOR:MAGENTA;
+}
+
+
+input[type="button"]:hover{
+	
+	background-color:black;
+
+}
+
+
+
+/*
+super
+
+*/
+
+button:nth-child(2n){
+	
+	color:green;
+}
+
+
+
+button:before{
+	content:"abc";
+	color:red;
+	
+}
+
+

@@ -1,0 +1,268 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+class Magazin
+{
+	private:
+		const int id; //se genereaza automat pe baza unui static
+		char* denumire;
+		int nrProduse;
+		float* preturiProduse;
+		int nrAngajati;
+		static int nrMagazine;
+		bool online;
+
+public:
+	Magazin():id(++nrMagazine) {
+		this->denumire = new char[strlen("N/A") + 1];
+		strcpy(this->denumire, "N/A");
+		this->nrProduse = 0;
+		this->preturiProduse = NULL;
+		this->nrAngajati = 0;
+		this->online = false;
+	}
+
+	Magazin(char* d, int nr, float* preturi, int nrAng, bool online):id(++nrMagazine) {
+		if (d != NULL)
+		{
+			this->denumire = new char[strlen(d) + 1];
+			strcpy(this->denumire, d);
+		}
+		else this->denumire = NULL;
+		this->nrProduse = nr;
+		if (preturi != NULL) {
+			this->preturiProduse = new float[this->nrProduse];
+			for (int i = 0;i < this->nrProduse;i++)
+				this->preturiProduse[i] = preturi[i];
+		}
+		else this->preturiProduse = NULL;
+		this->nrAngajati = nrAng;
+		this->online = online;
+	}
+
+	Magazin(const Magazin& m):id(m.id) {
+		if (m.denumire != NULL) {
+			this->denumire = new char[strlen(m.denumire) + 1];
+			strcpy(this->denumire, m.denumire);
+		}
+		else this->denumire = NULL;
+		this->nrProduse = m.nrProduse;
+		if (m.preturiProduse != NULL) {
+			this->preturiProduse = new float[m.nrProduse];
+			for (int i = 0;i < m.nrProduse;i++)
+				this->preturiProduse[i] = m.preturiProduse[i];
+		}
+		else this->preturiProduse = NULL;
+		this->nrAngajati = m.nrAngajati;
+		this->online = m.online;
+	}
+
+	Magazin& operator=(const Magazin& m) {
+		//precum constructorul copiere+ grija la dezalocare
+		//NU! abordam consturile
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (this->preturiProduse != NULL)
+			delete[] this->preturiProduse;
+		if (m.denumire != NULL) {
+			this->denumire = new char[strlen(m.denumire) + 1];
+			strcpy(this->denumire, m.denumire);
+		}
+		else this->denumire = NULL;
+		this->nrProduse = m.nrProduse;
+		if (m.preturiProduse != NULL) {
+			this->preturiProduse = new float[m.nrProduse];
+			for (int i = 0;i < m.nrProduse;i++)
+				this->preturiProduse[i] = m.preturiProduse[i];
+		}
+		else this->preturiProduse = NULL;
+		this->nrAngajati = m.nrAngajati;
+		this->online = m.online;
+		return *this;
+
+	}
+
+	//set pt denumire
+	void setDenumire(char* d) {
+		//dezalocare!!!
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (d != NULL) {
+			this->denumire = new char[strlen(d) + 1];
+			strcpy(this->denumire, d);
+		}
+
+		else this->denumire = NULL;
+	}
+
+	void setNrAngajati(int nr) {
+		if (nr > 10)
+			this->nrAngajati = nr;
+		else
+			throw new exception("Numar angajati negativi. eroare!");
+	}
+
+	~Magazin() {
+		if (this->denumire != NULL)
+			delete[] this->denumire;
+		if (this->preturiProduse != NULL)
+			delete[] this->preturiProduse;
+	}
+
+	friend ostream& operator<<(ostream& out, const Magazin& m);
+	friend istream& operator >> (istream& in, Magazin& m); //fara const pt ca obiectul m se modifica!!!!!
+	friend ifstream& operator >> (ifstream& fIn, Magazin& m);
+
+	bool operator>(Magazin m) {
+		if (this->nrAngajati > m.nrAngajati)
+			return true;
+		else return false;
+	}
+
+	//cast la float ce returneaza pretul mediu al produselor din magazin
+	operator float() {
+		float medie = 0;
+		for (int i = 0;i < nrProduse;i++)
+			medie += this->preturiProduse[i];
+		medie = medie / this->nrProduse;
+		return medie;
+	}
+
+	//operator index: returneaza pretul produsului de pe pozitia i
+	float& operator[](int i) {
+		return this->preturiProduse[i];
+	}
+};
+
+//METODELE FRIEND NU SUNT ALE CLASEI
+
+ostream& operator<<(ostream& out, const Magazin& m) {
+	out << "Magazin " << m.id <<" "<<m.denumire<< "are " << m.nrAngajati << " angajati.\n";
+	out << "Lista preturi: ";
+	for (int i = 0;i < m.nrProduse;i++)
+		out << m.preturiProduse[i] << " ";
+	if (m.online == true)
+		out << "\nMagazin ofera vanzare online";
+	else out << "\nMagazin nu ofera vanzare online";
+	return out;
+}
+
+istream& operator >> (istream& in, Magazin& m) {
+	//de avut grija la dezalocare zona de memorie pt pointeri!
+	cout << "\nIntroduceti denumirea";
+	char buffer[100];
+	in.get(buffer, 100);
+	if (m.denumire != NULL)
+		delete[] m.denumire;
+	m.denumire = new char[strlen(buffer) + 1];
+	strcpy(m.denumire, buffer);
+	cout << "Introduceti nr de produse";
+	in >> m.nrProduse;
+	//dezalocare
+	if (m.preturiProduse != NULL)
+		delete[] m.preturiProduse;
+	//realocare
+	m.preturiProduse = new float[m.nrProduse];
+	//copiere elemente fiecare pret in parte
+	for (int i = 0;i < m.nrProduse;i++) {
+		cout << "pret prod " << i + 1 << ": ";
+		in >> m.preturiProduse[i];
+	}
+	cout << "Numarul de angajati";
+	in >> m.nrAngajati;
+	cout << "Modalitate";
+	in >> m.online;
+	return in;
+
+}
+
+ifstream& operator >> (ifstream& fIn, Magazin& m) {
+	
+	char buffer[100];
+	fIn >> buffer;
+	fIn.clear();
+	if (m.denumire != NULL)
+		delete[] m.denumire;
+	m.denumire = new char[strlen(buffer) + 1];
+	strcpy(m.denumire, buffer);
+	fIn >> m.nrProduse;
+	//dezalocare
+	if (m.preturiProduse != NULL)
+		delete[] m.preturiProduse;
+	//realocare
+	m.preturiProduse = new float[m.nrProduse];
+	//copiere elemente fiecare pret in parte
+	for (int i = 0;i < m.nrProduse;i++) {
+		cout << "pret prod " << i + 1 << ": ";
+		fIn >> m.preturiProduse[i];
+	}
+	fIn >> m.nrAngajati;
+	fIn >> m.online;
+	return fIn;
+}
+
+int Magazin::nrMagazine = 0;
+
+void main() {
+	Magazin m1;
+	cout << m1;
+	
+	float l[] = { 12.4,13.5,20,50 };
+	Magazin m2("Zara", 4, l, 10, true);
+	cout << m2;
+
+	Magazin m3 = m2;
+	cout << "\n\n" << m3;
+
+	m1 = m3;
+	cout << "\n\n " << m1;
+	m1.setDenumire("zaraHome");
+	cout << "\n\n" << m1;
+
+	try {
+		m1.setNrAngajati(10);
+	}
+
+	catch (exception* ex) {
+		cout << ex->what();
+	}
+
+	try {
+		m1.setNrAngajati(-5);
+	}
+
+	catch (exception* ex) {
+		cout << ex->what();
+	}
+
+	//m1.setNrAngajati(10);
+	//m1.setNrAngajati(-5); //+mecanism try-catch
+
+	//lucru cu fisiere
+	//SCRIERE IN FISIER
+	ofstream fOut;
+	fOut.open("listaMagazine.txt", ios::out);
+	fOut << m2;
+	fOut << m3;
+
+	////citire din fisier text
+	//ifstream fIn;
+	//fIn.open("fisierCitire.txt", ios::in);
+	//int nrMagazine;
+	//fIn >> nrMagazine;
+	//cout<<"\n\n"<<
+
+	//supraincarcari: >, +=, cast, index
+	if (m1 > m2) cout << "m1 are mai multi angajati";
+	else cout << "magazin m2 are mai multi angajati";
+
+	//cast la int 
+	int nrProduseMagazin = m1; //cast ca sa pot sa extrag doar nr de produse din magazinul m1
+
+	//operator index
+	float pret = m1[2];
+
+	//modificare
+	m1[0] = 200; //de asta am pus referinta;
+}

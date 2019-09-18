@@ -1,0 +1,114 @@
+HYPERTEXT MARKUP LANGUAGE
+markup pt ca marcam informatiile cu taguri <tag> informatie </tag>
+
+CSS-CASCADE STYLE SHEETS
+
+CSS face html-ul sa arate omeneste
+
+framework in css bootstrap(biblioteca de css-uri)
+
+JAVA SCRIPT -limbaj de programare (limbaj de scripting,se ruleaza in browser)-face paginile html interactive
+
+JQUERY(biblioteca in java script)
+
+server
+_________________________
+|                       |
+| server app            |  server-app->browser
+|                       |
+|     BD                |  bd->server app
+|                       |
+|                       |
+|_______________________|
+
+
+in <head> sunt metadate despre pagina 
+
+
+DOM-Document Object Model
+
+Structura arborescenta ce reprezinta pagina
+
+
+tagul div indica o diviziune a paginii(ex in notepad++)
+
+
+span selecteaza o secventa dintext care poate fi formatata diferit
+
+a href permite introducerea de hiperlinkuri
+
+br = /n
+
+browserul interpreteaza html ,css si java script
+
+&nbsp spatiu (space)
+
+daca vreau sa pun caracterul > ,interpretorul l-ar confunda si tb sa pun un caracter special(principiu ca in java) &gt
+
+&#350 = Ș
+
+
+daca am un cod preformatat tagul pre tine cont de spatii 
+tagul code identifica limbajul de programare
+
+FORM
+Cu formularul putem obtine date de la utilizator(<form></form>
+
+jsp(java server pages) permite sa facem paginile interactive
+exista si alte tehnologii pe langa jsp,de exemplu angular sau reactJS sau jsf(java server faces),asta lureaza pe server si iti trebuie servere mai puternice
+
+
+in line-ul din html suprascrie atributele specificate in css
+Daca eu i-am spus in css ca div-ul meu sa fie albastru,nu trebuie sa suprascriu in html background ul
+
+. selecteaza clasa specificat in html,
+# selecteaza id-ul specificat in html
+iar daca pun div sau label fara altceva selecteaza toate elementele de tipul respectiv
+
+
+DIV P{
+SELECTEAZA TOATE PARAGRAFELE DINTR UN DIV	
+	
+}
+
+H1,H2{
+SELECTEAZA H1,H2
+	
+}
+
+DIV > P{
+	SELECTEAZA PRIMUL P DESCENDENT DIRECT,IN EXEMPLU P ESTE INTR-UN SPAN ,DECI NU ESTE DESCENDENT DIRECT
+	
+}
+
+
+PSEUDO-CLASE in CSS
+-modifica comportamentul elementului in functie de starea lui
+
+BOOTSTRAP
+bootstrap imparte ecranul in 12 coloane si poate fi impartit 12 in randuri
+
+4 dimensiuni in bootstrap:
+xs-extra small
+sm  small
+md mediu
+lg large
+
+cu astea pot sa setez cum sa se imparta pagina in functie de marimea ecranului
+
+<div class 
+
+toate div urile trb sa fie in container
+
+JQuery este o biblioteca JavaScript care te ajuta sa scrii mai putin cod
+
+web server for web
+
+
+JavaScript-limbaj de scripting care manipuleaza paginile web si le face interactive
+
+var(weakly type)(java -strongly-type)
+
+
+
+

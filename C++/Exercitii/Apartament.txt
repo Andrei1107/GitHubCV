@@ -1,0 +1,190 @@
+#include <iostream>
+#include <vector>
+#include<list>
+using namespace std;
+#pragma warning(disable:4996)
+
+class Apartament
+{
+private:
+	char* proprietar;
+	float costintretinere;
+	int nrpers;
+
+public:
+	//constr fara param
+	//cu param
+	//de copiere
+	//operator =
+	//supraincarcare op afisare la consola 
+	//destructor
+
+	Apartament()
+	{
+		this->proprietar = new char[strlen("Apartament") + 1];
+		strcpy(this->proprietar, "Apartament");
+		this->costintretinere = 0;
+		this->nrpers = 0;
+		
+
+	}
+	Apartament(char* p, float ci, int np)
+	{
+		this->proprietar = new char[strlen(p) + 1];
+		strcpy(this->proprietar, p);
+
+		this->costintretinere = ci;
+		this->nrpers = np;
+		
+	}
+
+	Apartament(const Apartament& ap)
+	{
+
+		if (ap.proprietar != NULL)
+		{
+			this->proprietar = new char[strlen(ap.proprietar) + 1];
+			strcpy(this->proprietar, ap.proprietar);
+		}
+		else
+			this->proprietar = NULL;
+
+		this->costintretinere = ap.costintretinere;
+		this->nrpers = ap.nrpers;
+		
+	}
+
+	//operator =
+	Apartament& operator=(const Apartament& ap) {
+		this->proprietar = new char[strlen(ap.proprietar) + 1];
+		strcpy(this->proprietar, ap.proprietar);
+
+		this->costintretinere = ap.costintretinere;
+		this->nrpers = ap.nrpers;
+		
+	}
+
+	friend ostream &operator<< (ostream& out, Apartament &ap);
+
+
+	~Apartament()
+	{
+		if (this->proprietar != NULL)
+			delete[]this->proprietar;
+	}
+
+	bool operator<(const Apartament& ap)
+	{
+	
+		if (this->costintretinere < ap.costintretinere)
+
+		{
+			return true;
+	
+			
+		}
+		else
+			return false;
+	
+
+	}
+
+
+};
+
+ostream &operator<< (ostream& out, Apartament &ap)
+{
+
+	out << "Apartamentul cu proprietarul " << ap.proprietar << ",in care locuiesc  " << ap.nrpers << "persoane" << "are costul de intretinere " << ap.costintretinere;
+
+
+	return out;
+}
+
+
+
+//implementare din libraria stl a unui vector si a unei liste
+void main()
+{
+	//utilizare vector din STL ce stocheaza ce stocheaza elemente int
+
+	int *v2;
+	vector<int> v;
+	
+	v.push_back(10); //push_back trimite la inceputul  vectorului elementul(adica prima pozitie)
+	v.push_back(20);
+	v.push_back(15);
+
+	//parcurgere vector
+
+	cout << "Afisare elemente vector : \n";
+	for (int i = 0; i < v.size(); i++)
+		cout << v[i] << " ";
+
+
+	//parcurgere folosind iteratori
+	cout << "\nAfisare vector folosind iterator\n";
+	vector<int>::iterator it;    //id este un iterator ce parcurge un vector ce stocheaza elem. intregi
+	for (it = v.begin(); it != v.end(); it++)                      //begin marcheaza inceputul vectorului,cat timp este diferit de sfarsitul vectorului,afiseaza
+		cout << *it << " ";
+
+	//utilizare list
+
+	cout << "\n Afisare lista int-uri \n";
+	list<int>listaint;
+	listaint.push_back(10);   
+	listaint.push_front(20);  //echivalent cu v.push_back(10)
+	listaint.push_back(5);
+
+	list<int>::iterator itlist;
+
+	for (itlist = listaint.begin(); itlist != listaint.end(); itlist++)
+
+		cout << *itlist << " ";
+	
+
+	listaint.sort(); //sorteaza implicit folosint op < =>sortare 
+
+	for (itlist = listaint.begin(); itlist != listaint.end(); itlist++)
+		cout << *itlist << " ";
+
+	//sortare descrescatoare
+	listaint.reverse();
+
+
+	Apartament a1("Alex", 150, 2);
+	Apartament a2("Andreea", 140, 3);
+
+	//lista de apartamente
+	list<Apartament> listaap;
+
+	listaap.push_back(a1);
+	listaap.push_back(a2);
+
+	list<Apartament>::iterator aplist;
+	cout << "\nLista apartamente:";
+	for (aplist = listaap.begin(); aplist != listaap.end(); aplist++)
+	{
+		cout << endl;
+		cout << *aplist << "\n ";
+
+	}
+
+	listaap.sort();
+	for (aplist = listaap.begin(); aplist != listaap.end(); aplist++)
+	{
+		cout << endl << *aplist << " ";
+	}
+
+
+	
+
+	//de incarcat 4 ap in lista ap
+	//de afisat lista de ap
+	//de sortat lista
+	//de afisat lista dupa sortare
+
+
+	
+
+}

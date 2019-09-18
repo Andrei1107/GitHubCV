@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+<TITLE>BootStrapExample</TITLE>
+<meta charset="utf">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</HEAD>
+
+
+<BODY>
+
+<div class="container">
+<div class="row">
+		<div class="col-md-12">
+			
+				<div class="panel panel-default" style="padding:20px">
+				
+						<div class="panel-body">
+						
+					<img src="bridge.jpeg" class="img-circle" style="width:30%">
+					<img src="bridge.jpeg" class="img-rounded" style="width:30%">
+					<img src="bridge.jpeg" class="img-thumbnail" style="width:30%">
+					
+					
+					</div>
+				</div>
+			</div>
+	   </div>
+	   
+	   <div class="row">
+	   
+	  <div class="col-md-8">
+	   <div class="panel panel-default" style="padding:20px">
+				
+			<div class="panel-body">
+	   <h2>Blockquot</h2>
+	   <blockquote>
+                            <p>Iar un poet îi spuse: "Vorbeşte-ne despre Frumusete." <br>
+                            "Cum ați putea s-o că;utați şi cum o veți găsi <br>
+                            de nu v-ar fi ea însăşi drum şi călăuză? <br>
+                            Şi cum ați şti să o descrieți în cuvinte <br>
+                            dacă ea însaşi nu v-ar țese vorba? <br>
+                            Cei răniți şi necăjiți spun: <br>
+                            &lt; &lt; Frumusețea e mângâiere şi căldură. <br>
+                            Ea trece printre noi întocmai unei tinere mame, <br>
+                            sfioasă parcă de propria-i spliendre splendoare.&gt; &gt;</p>
+                            <footer>Khalil Gibran, Despre frumusete</footer>
+                        </blockquote>
+			
+			
+
+    </div>
+  </div>
+</div>
+	
+				
+		
+<div class="col-md-4">
+	   <div class="panel panel-default" style="padding:41px">
+				
+			 <div class="panel-body">
+	   
+			  <h2>Fonduri contextuale</h2>
+                        <p>Se folosesc pentru a intari semnificatia prin culori: :</p>
+                        <p class="bg-primary">Acest text este important.</p>
+                        <p class="bg-success">Acet text indica faptul ca o actiune s-a incheiat cu succes.</p>
+                        <p class="bg-info">Acest text arata o informatie.</p>
+                        <p class="bg-warning">Acest text repreinta un avertizment.</p>
+                        <p class="bg-danger">Acest text semnaleaza pericol.</p>
+		
+       </div>
+	</div>
+</div>
+
+		
+ <div class="row">
+	   
+	  <div class="col-md-12">
+	     <div class="panel panel-default" style="padding:20px">
+				 <div class="panel-body">
+						</div>
+			
+						<form action="">
+						<div class="input-group">
+					<span class="input-group-addon">Nume</span>
+					<input type="text" class ="form-control" id="email">
+			  </div>
+			  <br>
+			  <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user">Email</i></span>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+							<br>
+							<div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock">Password</i></span>
+                                <input type="password" class="form-control" id="email">
+                            </div>
+							
+							<div class="form-group">
+                                <label for="comment">Comentariu:</label>
+                                <textarea class="form-control" rows="5" id="comment" style="resize:none"></textarea>
+                            </div>
+								<div class="radio">
+                                <label><input type="radio" name="grupRadio" checked>Option 1</label>
+								</br>
+								 <label><input type="radio" name="grupRadio" >Option 2</label>
+								</br>
+								 <label><input type="radio" name="grupRadio" disable>Option 3</label>
+								</br>
+								
+								
+                            </div>
+							<div class="form-group" style="width:20% " >
+							<label for="sel1">Select list:</label>
+							<select class="form-control" id="sel1">
+							<option>Optiunea 1</option>
+							<option>Optiunea 2</option>
+							<option>Optiunea 3</option>
+							<option>Optiunea 4</option>
+							</select>
+							
+							<button type="submit" class="btn btn-default">Submit</button>
+                            <br>
+                            <button type="button" class="btn">Basic</button>
+                            <br>
+                            <button type="button" class="btn btn-default">Default</button>
+                            <br>
+                            <button type="button" class="btn btn-primary">Primary</button>
+                            <br>
+                            <button type="button" class="btn btn-warning">Warning</button>
+                            <br>
+                            <button type="button" class="btn btn-danger">Danger</button>
+                            <br>
+                            <button type="button" class="btn btn-link">Link</button>
+                            <br>
+                            <button type="button" class="btn btn-success">Success</button>
+                            <br>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Info</button>
+							
+							
+			   </form>
+			
+			</div>
+			
+		</div>
+			
+	</div>
+	   
+	  
+
+	  
+</div>
+
+<!-- Modal -->
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                       &times;
+                 </button>
+                 <h4 class="modal-title" id="myModalLabel">
+                    Confirmare
+                 </h4>
+              </div>
+              <div class="modal-body">
+                    Sunteti sigur ca vreti sa treceti la pasul urmator?
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-success"
+                    data-dismiss="modal">Nu
+                 </button>
+                 <button type="button" class="btn btn-danger">
+                    Da
+                 </button>
+              </div>
+           </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+     </div> <!-- /.modal -->
+
+
+
+</BODY>
+
+</HTML>
