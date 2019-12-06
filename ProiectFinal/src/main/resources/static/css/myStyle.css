@@ -1,0 +1,393 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+
+
+#id_inregistrare {
+    position: absolute;
+    right: 3px;
+    top: 1px;
+
+}
+
+#id_conectare {
+
+    position: absolute;
+    display: inline-block;
+    right: 215px;
+    top: 2mm;
+    font-weight: bold;
+}
+
+#carousel {
+    height: 450px;
+}
+
+#id_div_bandName {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+
+
+}
+
+.img {
+    object-fit: contain;
+}
+
+
+#id_div_email {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+
+}
+
+
+#id_div_password {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+
+}
+
+#id_div_confPass {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#checkboxesForm {
+    position: absolute;
+    top: 55%;
+    left: 40%;
+}
+
+.grid {
+    margin-top: 20px;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    grid-row-gap: 50px;
+    grid-column-gap: 80px;
+
+}
+
+.grid > article {
+    min-width: 350px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.grid > article img {
+    max-width: 300px;
+    min-width: 300px;
+}
+
+
+
+#articleTop{
+    min-height: 300px;
+    max-height: 300px;
+    margin: 10px 5px;
+}
+#anchorImage{
+
+}
+#eventCreator{
+    min-width: 25px;
+    max-width: 25px;
+    height: 25px;
+}
+
+#flexedDiv{
+    display: flex !important;
+}
+
+#checkBand{
+    background:#900C3F;
+    color: white;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.text {
+    padding: 0 20px 20px;
+}
+
+.text > button {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+#id_btn_submitBand {
+    position: absolute;
+    top: 70%;
+    left: 47%;
+
+
+    background-color: white;
+    color: black;
+    border: 2px solid tomato;
+    font-weight: bold;
+    font-size: 100%;
+
+    border-radius: 12px;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+}
+
+#id_btn_submitBand:hover {
+    background-color: tomato;
+    color: white;
+    font-weight: bold;
+    font-size: 100%;
+
+}
+
+
+#validationServer015 {
+
+    width: 45%;
+
+}
+
+#validationServer025 {
+
+    width: 45%;
+}
+
+#validationServerUsername55 {
+    width: 50%;
+
+}
+
+
+#validationServer055 {
+    width: 45%;
+}
+
+#validationServer035 {
+    width: 45%;
+}
+
+#validationServer045 {
+
+    width: 45%;
+}
+
+#confPassword {
+
+    width: 45%;
+}
+
+#search_event {
+
+    width: 200%;
+
+}
+
+
+#id_div_search {
+
+    position: absolute;
+    left: 35%;
+
+}
+
+nav.navbar-dark {
+    z-index: 9999;
+    background: #900C3F !important;
+    border-color: #000 !important;
+    height: 60px;
+}
+
+
+#id_div_card {
+    text-align: center;
+    width: 50%;
+    margin: 20px auto auto;
+
+
+}
+
+.card-header {
+    background-color: #900C3F !important;
+    font-weight: bold !important;
+}
+
+.card-footer {
+    background-color: #900C3F !important;
+}
+
+
+.btn-rounded {
+
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: white;
+    color: black !important;
+    border-radius: 14px;
+    border-color: black !important;
+    font-weight: bold !important;
+
+}
+
+.card-header {
+    background-color: #900C3F !important;
+}
+
+
+.btn-rounded:hover {
+    background-color: #900C3F !important;
+    color: white !important;
+
+}
+
+
+#navbarTogglerDemo03 {
+    font-weight: bold !important;
+    color: white;
+    background-color: #900C3F;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    background-color: white !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #900C3F !important;
+
+}
+
+.nav-link {
+    font-weight: bold;
+    color: white;
+
+}
+
+#profilePic {
+    height: 45px;
+}
+
+#notificationAnvelope {
+    Margin-top: auto;
+    Margin-bottom:auto;
+}
+
+
+form input[id="regUsername"]:focus:invalid, form input[type="email"]:focus:invalid, form input[type="password"]:focus:invalid {
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-color: pink;
+    border: 1px solid red;
+    -webkit-box-shadow: 0px 0px 8px -3px red;
+    box-shadow: 0px 0px 8px -3px red;
+    color: maroon;
+}
+
+form input[id="regUsername"]:valid, form input[type="email"]:valid, form input[type="password"]:valid {
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+#submitReg, #profileButton {
+    background-color: #900C3F;
+    color: white;
+}
+
+#cancelButton{
+    background-color: rgba(144, 12, 63, 0.73);
+    color: white;
+}
+
+#regEmail {
+    padding-right: 32px;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+#band_title{
+
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 150px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    position: relative;
+
+
+}
+
+
+
+@media (max-width: 767.98px) {
+    ul.profile {
+        margin-left: 0;
+    }
+    #id_div_card {
+        width: 100%;
+    }
+}
+
+
+#Description{
+    resize: none;
+}
+
+

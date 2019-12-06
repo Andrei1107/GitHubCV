@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+
+>
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/myStyle.css" rel="stylesheet">
+    <title>Inregistreaza-te</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="customscripts/confirmPassword.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"
+            type="text/javascript"></script>
+</head>
+<body>
+
+<header th:insert="fragments/navbar.html :: navigationBar"></header>
+
+<div class="container">
+    <hr>
+
+<form th:action="@{/registerForm}" th:object="${user}" method="post" th:fragment="formSpectator">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="divider-text">
+                <span class="bg-light">OR</span>
+            </p>
+            <form>
+                <p class="error-message"
+                   th:each="error: ${#fields.errors('username')}"
+                   th:text="${error}">Validation error</p>
+                <div class="form-group input-group" th:classappend="${#fields.hasErrors('username')}? 'has-error':''">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+
+                    <input id="regUsername"minlength="5" maxlength="15" name="" oninput="validate()" th:field="*{username}"  class="form-control" placeholder="Username" type="text" required>
+
+                </div> <!-- form-group// -->
+                <p class="error-message"
+                   th:each="error: ${#fields.errors('email')}"
+                   th:text="${error}">Validation error</p>
+
+                <div class="form-group input-group" th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input id="regEmail" name="" class="form-control" th:field="*{email}" placeholder="Email address" type="email" required>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    </div>
+                    <select class="form-control" name="exampleRadios" required>
+                        <option selected="" value=""> Select user type</option>
+                        <option value="option1">Spectator</option>
+                        <option value="option2">Band</option>
+                    </select>
+                </div> <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" name="password" minlength="5" maxlength="15" id="password" th:field="*{password}" placeholder="Create password" type="password" required="required">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" name="confirm_password" id="confirm_password" oninput="check(this)" placeholder="Repeat password" type="password" required="required">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button id="submitReg" type="submit" class="btn btn-block"> Create Account  </button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="" th:href="@{/login}">Log In</a> </p>
+            </form>
+        </article>
+    </div>   <!-- card.// -->
+</form>
+</div>
+
+
+</body>
+</html>

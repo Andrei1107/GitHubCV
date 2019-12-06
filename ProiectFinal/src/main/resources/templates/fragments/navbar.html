@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</header>
+
+<body>
+
+<div th:fragment="navigationBar" >
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/}">
+
+            <img src="https://www.pngkey.com/png/full/645-6450888_logo-itunes-white-music.png"
+                 alt="logo" height="35" width="40"/>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/events}" th:text="#{index.events}"></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/bands}" class="nav-link" th:text="#{index.bands}"></a>
+                </li>
+
+            </ul>
+<!--            <form class="navbar-nav ml-auto nav-flex-icons">-->
+<!--                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            </form>-->
+
+            <ul class="navbar-nav ml-auto profile" sec:authorize="isAnonymous()">
+                <li class="nav-item">
+
+                    <a class="nav-link" th:href="@{/login}" th:text="#{index.connect}"></a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" th:href="@{/registerForm}" th:text="#{index.register}"></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto nav-flex-icons profile" sec:authorize="isAuthenticated()">
+                <li class="nav-item" id="notificationAnvelope">
+                    <a class="nav-link waves-effect waves-light">1
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle" th:src="@{/getAvatar}" id="profilePic" height="45" width="45"
+                             alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                         aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item" href="#" th:href="@{/profile}" sec:authorize="hasRole('ROLE_Spectator')">Profile</a>
+                        <a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_Spectator')">My tickets</a>
+                        <a class="dropdown-item" href="#" th:href="@{/profile}" sec:authorize="hasRole('ROLE_Trupa')">Profile</a>
+                        <a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_Trupa')">My events</a>
+                        <a class="dropdown-item" th:href="@{/logout}">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
